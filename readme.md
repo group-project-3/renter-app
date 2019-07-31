@@ -7,7 +7,7 @@
     <img src="logo.png" alt="Logo" width="80" height="80">
   </a> -->
 
-  <h3 align="center">BAmazon</h3>
+  <h3 align="center">Project Name</h3>
 
   <p align="center">
   Project Description
