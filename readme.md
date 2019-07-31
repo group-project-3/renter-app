@@ -1,34 +1,88 @@
-# project3
 
-**TO DEPLOY DEV SERVER:**
-inside app folder =>
-```npm start```
 
-// for example:
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <!-- <a href="https://github.com/othneildrew/Best-README-Template">
+    <img src="logo.png" alt="Logo" width="80" height="80">
+  </a> -->
 
+  <h3 align="center">BAmazon</h3>
+
+  <p align="center">
+  Project Description
+  </p>
+</p>
+
+
+
+<!-- TABLE OF CONTENTS -->
+## Table of Contents
+
+* [About the Project](#about-the-project)
+  * [Built With](#built-with)
+* [Getting Started](#getting-started)
+  * [Prerequisites](#prerequisites)
+  * [Installation](#installation)
+* [Usage](#usage)
+* [Contributing](#contributing)
+* [License](#license)
+* [Contact](#contact)
+
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+<!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
+
+Product Name Screen Shot
+
+### Built With
+The following tools/frameworks are use in this project.
+* [Node](https://nodejs.org/en/)
+* [mysql](https://www.mysql.com/)
+
+
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+To get a local copy up and running follow these simple example steps.
+
+### Prerequisites
+
+Install required npm packages
+* npm
+```sh
+npm install
 ```
-cd project3
-npm start
 
+### Installation
+
+1. Clone the repo
+```sh
+git clone https://github.com/<user>/<repo>
+```
+2. Install NPM packages
+```sh
+npm install
+```
+3. Creata mysql table using
+```JS
+schema.sql
 ```
 
-// the app will automatically open on http://localhost:3000/
-// the backend express server can be viewed on http://localhost:3100/
 
----
+<!-- USAGE EXAMPLES -->
+## Usage
 
-**frontend @ http://localhost:3000/**
-**backend @ http://localhost:3100/**
 
----
 
-**FAQ**  
-@ initial git add . => command line may display CRLF to LF etc
+<!-- CONTACT -->
+## Contact
 
-This is just letting you know that your code editor is doing its job and is saving the files in your preferred format.
-More details:
-https://stackoverflow.com/questions/1552749/difference-between-cr-lf-lf-and-cr-line-break-types
+<!-- Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com -->
 
----
+Project Link: [https://github.com/<user>/<repo>](https://github.com/<user>/<repo>)
 
-Cheers!
+
