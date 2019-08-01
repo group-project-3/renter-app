@@ -13,5 +13,8 @@ router
     .route("/logout")
     .post(usersController.logout)
 
-
+router
+    .route("/create")
+    .post(usersController.create)
+    
 module.exports = router;
