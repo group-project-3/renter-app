@@ -1,15 +1,26 @@
 import React from 'react';
-import Nav from './components/Nav';
-import Jumbotron from './components/Jumbotron';
-// import logo from './logo.svg';
-// import './App.css';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Nav from './components/Nav/Nav';
+import Jumbotron from './components/Jumbotron/Jumbotron';
+import Home from "./pages/Home/Home";
+import Register from "./pages/Register/Register";
+import LogIn from "./pages/LogIn/LogIn"
+
 
 function App() {
   return (
-    <div className="App">
+
+      <Router>
       <Nav />
       <Jumbotron />
-    </div>
+
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/LogIn" component={LogIn} />
+        <Route exact path="/Register" component={Register} />
+      </Switch>
+      </Router>
+
   );
 }
 
