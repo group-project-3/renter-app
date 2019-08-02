@@ -13,10 +13,10 @@ function Nav() {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/">Home <span class="sr-only"></span></a>
+                    <a class="nav-link" href="/Rent">Rent</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/Post">Post</a>
                 </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
@@ -24,7 +24,13 @@ function Nav() {
                         <a class="nav-link" href="/LogIn">Log In<span class="sr-only"></span></a>
                     </li>
                     <li className="nav-link">
+                        <a class="nav-link" href="#">Log Out<span class="sr-only"></span></a>
+                    </li>
+                    <li className="nav-link">
                         <a class="nav-link" href="/Register">Register<span class="sr-only"></span></a>
+                    </li>
+                    <li className="nav-link">
+                        <a class="nav-link" href="/AccountSettings">Account Settings<span class="sr-only"></span></a>
                     </li>
                 </ul>
             </div>
