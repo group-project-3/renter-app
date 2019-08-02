@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function LogIn() {
+export default function PostItem() {
     return (
      <div>
-         <h1>Log In Page</h1>
+         <h1>Post Item Page</h1>
      </div>
     );
   }

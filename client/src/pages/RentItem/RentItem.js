@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function LogIn() {
+export default function RentItem() {
     return (
      <div>
-         <h1>Log In Page</h1>
+         <h1>Rent Item Page</h1>
      </div>
     );
   }
