@@ -17,21 +17,46 @@ module.exports = {
     login: (request, response) => {
         db.User.findOne({ username: request.body.username })
             .then(dbModel => {
-                let uuid = uuidv1()
-                let userSession = {
-                    session_token: uuid
+                let passwordEntered = hashpass(request.body.password, dbModel.salt);
+                let storedPassword = dbModel.password
+                if (passwordEntered.hash === storedPassword) {
+                    let uuid = uuidv1()
+                    db.User.updateOne({ "username": request.body.username }, { $set: { "session_token": uuid } },
+                        function (error, edited) {
+                            if (error) {
+                                console.log(error);
+                                response.send(error);
+                            }
+                        })
+                } else {
+                    console.log("sorry not a match")
                 }
-                console.log(dbModel)
-                dbModel.session_token(uuid)
-                db.User.findOneAndUpdate(username, userSession)
+
             })
             .catch(err => {
                 response.json(err);
             });
     },
     logout: (request, response) => {
-        // request.logout();
-        response.send("user logged out");
+        db.User.findOne({ username: request.body.username })
+            .then(dbModel => {
+                let uuid = uuidv1()
+                console.log(uuid)
+                db.User.updateOne({ "username": request.body.username }, { $set: { "session_token": "" } },
+                    function (error, edited) {
+                        if (error) {
+                            console.log(error);
+                            response.send(error);
+                        }
+                        else {
+                            console.log("user logged out");
+                            response.send(edited);
+                        }
+                    })
+            })
+            .catch(err => {
+                response.json(err);
+            });
     },
     create: (request, response) => {
         if (!request.body.email_address.includes("@") || !request.body.email_address.includes(".")) {
@@ -46,7 +71,8 @@ module.exports = {
                 email_address: request.body.email_address,
                 username: request.body.username,
                 password: hashedPassword.hash,
-                salt: hashedPassword.salt
+                salt: hashedPassword.salt,
+                session_token: ""
             };
             console.log(userRequest)
             db.User
