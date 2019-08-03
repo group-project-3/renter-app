@@ -59,7 +59,7 @@ class Register extends Component {
                             name="confirmPassword"
                             placeholder="Please Confirm Your Password"
                             />
-                            <FormBtn >
+                            <FormBtn onClick={this.handleFormSubmit}>
                                 Submit
                             </FormBtn>
                         </form>
