@@ -10,7 +10,7 @@ export default {
   logout: function () {
     return axios.post("/api/users/logout");  
   },
-  create: function () {
-    return axios.post("/api/users/create");
+  create: function (newUser) {
+    return axios.post("/api/users/create", newUser);
   }
 };
