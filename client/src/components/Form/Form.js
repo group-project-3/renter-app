@@ -13,15 +13,15 @@ export function Input(props) {
 export function EmailInput(props) {
   return (
     <div className="form-group">
-      <input className="form-control" {...props} />
+      <input className="form-control" type="email" {...props} />
     </div>
   );
 }
 
 export function PasswordInput(props) {
   return (
-    <div className="form-group" type="password">
-      <input className="form-control" {...props} />
+    <div className="form-group">
+      <input className="form-control" type="password" {...props} />
     </div>
   );
 }
