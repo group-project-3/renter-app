@@ -23,11 +23,8 @@ class PostItem extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        if (this.state.password !== this.state.confirmPassword){
-            console.log("error: invalid password");
-        } else {
-            console.log("password confirmed");
-        }
+        console.log(this.state);
+        
     }
 
 
