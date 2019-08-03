@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Col, Row, Container } from "../../components/Grid/Grid";
-import { Input, EmailInput, PasswordInput, FormBtn } from "../../components/Form/Form"
+import { Input, EmailInput, PasswordInput, PriceInput, FormBtn } from "../../components/Form/Form"
 
 
 class PostItem extends Component {
@@ -62,7 +62,7 @@ class PostItem extends Component {
                             placeholder="Please an Item Location"
                             />
 
-                            <Input
+                            <PriceInput
                             value={this.state.price}
                             onChange={this.handleInputChange}
                             name="price"

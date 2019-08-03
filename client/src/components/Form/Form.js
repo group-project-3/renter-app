@@ -10,6 +10,22 @@ export function Input(props) {
   );
 }
 
+export function PriceInput(props) {
+  return (
+
+    <div className="input-group mb-3">
+      <div className="input-group-prepend">
+        <span className="input-group-text">$</span>
+      </div>
+      <input type="text" className="form-control" aria-label="Amount (to the nearest dollar)" />
+    <div className="input-group-append">
+      <span className="input-group-text">.00</span>
+    </div>
+    </div>
+
+  );
+}
+
 export function EmailInput(props) {
   return (
     <div className="form-group">
