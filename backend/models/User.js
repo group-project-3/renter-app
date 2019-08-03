@@ -2,11 +2,12 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-    first_name: { type: String, required: true },
-    last_name: { type: String, required: true },
-    email_address: { type: String, required: true },
+    first_name: { type: String },
+    last_name: { type: String },
+    email_address: { type: String },
+    username: { type: String },
     role: { type: String },
-    password: { type: String, required: true },
+    password: { type: String },
     salt: { type: String },
     session_token: { type: String },
     created: { type: Date, default: Date.now },
