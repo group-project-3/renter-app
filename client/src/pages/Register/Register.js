@@ -1,9 +1,17 @@
-import React from "react";
+import React, { Component } from "react";
+import { Input, TextArea, FormBtn } from "../../components/Form/Form"
 
-export default function Register() {
-    return (
-     <div>
-         <h1>Registration Page</h1>
-     </div>
-    );
-  }
+
+class Register extends Component {
+
+    render() {
+        return(
+        <div>
+
+        </div>
+        );
+    };
+
+}
+
+export default Register;
