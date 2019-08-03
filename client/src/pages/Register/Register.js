@@ -6,7 +6,8 @@ import { Input, FormBtn } from "../../components/Form/Form"
 class Register extends Component {
     state = {
         email: "",
-        password: ""
+        password: "",
+        confirmPassword: ""
     };
 
 
@@ -15,7 +16,8 @@ class Register extends Component {
         <div>
             <Container d-flex justify-content-center>
                 <Row>
-                    <Col size="md-8">
+                    <Col size="md-3"></Col>
+                    <Col size="md-6">
                         <h1>Register</h1>
                         <br></br>
                         <Input
@@ -39,6 +41,7 @@ class Register extends Component {
                         placeholder="Please Confirm Your Password"
                         />
                     </Col>
+                    <Col size="md-3"></Col>
                 </Row>
             </Container>
         </div>
