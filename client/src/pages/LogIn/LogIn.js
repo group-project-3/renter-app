@@ -8,6 +8,19 @@ class LogIn extends Component {
         password: ""
     };
 
+    handleInputChange = event => {
+        const { name, value } = event.target;
+        this.setState({[name]: value}, this.callback);
+      };
+
+    handleFormSubmit = event => {
+        event.preventDefault();
+        if (this.state.password !== this.state.confirmPassword){
+            console.log("error: invalid password");
+        } else {
+            console.log("password confirmed");
+        }
+    }
 
     render() {
         return (
