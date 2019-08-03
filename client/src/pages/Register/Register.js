@@ -1,14 +1,17 @@
 import React, { Component } from "react";
+import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid/Grid";
 import { Input, EmailInput, PasswordInput, FormBtn } from "../../components/Form/Form"
 
 
 class Register extends Component {
     state = {
+        first_name: "",
+        last_name: "",
+        email_address: "",
         username: "",
-        email: "",
         password: "",
-        confirmPassword: ""
+        password_confirm: ""
     };
 
     callback = () => {
@@ -25,7 +28,7 @@ class Register extends Component {
         if (this.state.password !== this.state.confirmPassword){
             console.log("error: invalid password");
         } else {
-            console.log("password confirmed");
+            API.creat
         }
     }
 
@@ -41,10 +44,16 @@ class Register extends Component {
                         <br></br>
                         <form>
                             <Input
-                            value={this.state.username}
+                            value={this.state.first_name}
                             onChange={this.handleInputChange}
-                            name="username"
-                            placeholder="Create a Username"
+                            name="first_name"
+                            placeholder="First Name"
+                            />
+                            <Input
+                            value={this.state.last_name}
+                            onChange={this.handleInputChange}
+                            name="last_name"
+                            placeholder="Last Name"
                             />
 
                             <EmailInput
