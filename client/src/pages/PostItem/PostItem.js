@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Col, Row, Container } from "../../components/Grid/Grid";
-import { Input, EmailInput, PasswordInput, PriceInput, FormBtn } from "../../components/Form/Form"
+import { Input, EmailInput, PasswordInput, PriceInput, TextArea, FormBtn } from "../../components/Form/Form"
 
 
 class PostItem extends Component {
@@ -48,7 +48,7 @@ class PostItem extends Component {
                             placeholder="Please Enter a Name for your Item"
                             />
 
-                            <Input
+                            <TextArea
                             value={this.state.description}
                             onChange={this.handleInputChange}
                             name="description"
