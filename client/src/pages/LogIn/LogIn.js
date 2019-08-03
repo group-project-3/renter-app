@@ -1,4 +1,4 @@
-import React, { Components } from "react";
+import React, { Component } from "react";
 import { Col, Row, Container } from "../../components/Grid/Grid";
 import { Input, PasswordInput, FormBtn } from "../../components/Form/Form"
 
