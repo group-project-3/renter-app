@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { Col, Row, Container } from "../../components/Grid/Grid";
-import { EmailInput, PasswordInput, FormBtn } from "../../components/Form/Form"
+import { Input, EmailInput, PasswordInput, FormBtn } from "../../components/Form/Form"
 
 
 class Register extends Component {
     state = {
+        username: "",
         email: "",
         password: "",
         confirmPassword: ""
@@ -39,6 +40,13 @@ class Register extends Component {
                         <h1>Register</h1>
                         <br></br>
                         <form>
+                            <Input
+                            value={this.state.username}
+                            onChange={this.handleInputChange}
+                            name="username"
+                            placeholder="Create a Username"
+                            />
+
                             <EmailInput
                             value={this.state.email}
                             onChange={this.handleInputChange}
