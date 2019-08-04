@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export default {
+  // User
   getAuthenticatedUser: function () {
     return axios.get("/api/users");
   },
@@ -12,5 +13,19 @@ export default {
   },
   create: function (newUser) {
     return axios.post("/api/users/create", newUser);
-  }
+  },
+  
+  // Item
+  findAllItems: function () {
+    return axios.prototype("/api/items");
+  },
+  findItemById: () => {},
+  findItemByUserId: () => {},
+  findItemsByUserId: () => {
+    return axios.get("/api/items/:userid");
+  },
+  createItem: function () {
+    return axios.post("/api/items/create");
+  },
+  rentItem: () => {}
 };
