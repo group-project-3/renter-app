@@ -4,10 +4,13 @@ export default {
   getAuthenticatedUser: function () {
     return axios.get("/api/users");
   },
-  login: function () {
-    return axios.post("/api/users/login");  
+  login: function (formData) {
+    return axios.post("/api/users/login", formData);
   },
   logout: function () {
-    return axios.post("/api/users/logout");  
+    return axios.post("/api/users/logout");
   },
+  create: function (newUser) {
+    return axios.post("/api/users/create", newUser);
+  }
 };
