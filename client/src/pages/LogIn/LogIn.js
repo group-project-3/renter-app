@@ -16,11 +16,15 @@ class LogIn extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
+      let loginObj = {
+          username: this.state.username, 
+          password: this.state.password
+      }
       
-            API.login(this.state)
+            API.login(loginObj)
             .then(res => console.log(res))
             .catch(err => console.log(err));
-            
+             
     }
 
     render() {
