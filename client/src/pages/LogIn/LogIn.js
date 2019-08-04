@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Col, Row, Container } from "../../components/Grid/Grid";
 import { Input, PasswordInput, FormBtn } from "../../components/Form/Form"
+import API from "../../utils/API";
 
 class LogIn extends Component {
     state = {
@@ -10,16 +11,20 @@ class LogIn extends Component {
 
     handleInputChange = event => {
         const { name, value } = event.target;
-        this.setState({[name]: value}, this.callback);
+        this.setState({[name]: value});
       };
 
     handleFormSubmit = event => {
         event.preventDefault();
-        if (this.state.password !== this.state.confirmPassword){
-            console.log("error: invalid password");
-        } else {
-            console.log("password confirmed");
-        }
+      let loginObj = {
+          username: this.state.username, 
+          password: this.state.password
+      }
+      
+            API.login(loginObj)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+             
     }
 
     render() {
