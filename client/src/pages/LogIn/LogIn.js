@@ -16,13 +16,11 @@ class LogIn extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        if (this.state.password !== this.state.confirmPassword){
-            console.log("error: invalid password");
-        } else {
-            API.create(this.state)
+      
+            API.login(this.state)
             .then(res => console.log(res))
             .catch(err => console.log(err));
-        }
+            
     }
 
     render() {
