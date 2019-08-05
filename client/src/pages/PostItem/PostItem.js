@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import { Col, Row, Container } from "../../components/Grid/Grid";
-import { Input, EmailInput, PasswordInput, PriceInput, TextArea, FormBtn } from "../../components/Form/Form"
+import { Input, EmailInput, PasswordInput, PriceInput, TextArea, FileInput, FormBtn } from "../../components/Form/Form"
+import UploadImage from "../../components/UploadImage/UploadImage";
 
 
 class PostItem extends Component {
     state = {
-        itemName: "",
-        description: "",
-        location: "",
-        price: "",
-        contact: ""
+        item_name: "",
+        url: [],
+        item_description: "",
+        // location_id: "",
+        // owner_id: "",
+        price: ""
     };
 
     callback = () => {
@@ -39,24 +41,17 @@ class PostItem extends Component {
                         <br></br>
                         <form>
                             <Input
-                            value={this.state.itemName}
+                            value={this.state.item_name}
                             onChange={this.handleInputChange}
                             name="itemName"
                             placeholder="Please Enter a Name for your Item"
                             />
 
                             <TextArea
-                            value={this.state.description}
+                            value={this.state.item_description}
                             onChange={this.handleInputChange}
                             name="description"
                             placeholder="Please Enter an Item Description"
-                            />
-
-                            <Input
-                            value={this.state.location}
-                            onChange={this.handleInputChange}
-                            name="location"
-                            placeholder="Please an Item Location"
                             />
 
                             <PriceInput
@@ -66,12 +61,7 @@ class PostItem extends Component {
                             placeholder="Please Enter a Price"
                             />
 
-                            <Input
-                            value={this.state.contact}
-                            onChange={this.handleInputChange}
-                            name="contact"
-                            placeholder="Please Enter a Contact Phone Number"
-                            />
+                            <UploadImage />
                             <FormBtn onClick={this.handleFormSubmit}>
                                 Submit
                             </FormBtn>

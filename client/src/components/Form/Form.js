@@ -34,6 +34,17 @@ export function EmailInput(props) {
   );
 }
 
+export function FileInput (props) {
+  return (
+    <form>
+      <div class="form-group">
+        <label for="exampleFormControlFile1">Upload Image</label>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1" />
+      </div>
+    </form>
+  );
+}
+
 export function PasswordInput(props) {
   return (
     <div className="form-group">
