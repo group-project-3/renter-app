@@ -27,10 +27,17 @@ export default {
   createItem: function () {
     return axios.post("/api/items/create");
   },
-  rentItem: () => {},
+
+  rentItem: () => { },
 
   // AWS
   s3Upload: (imageDetails) => {
     return axios.post("/api/aws/upload")
+  },
+
+ // Location
+ findAllLocations: () => {
+  return axios.get("/api/locations");
   }
+
 };
