@@ -12,6 +12,7 @@ const S3_BUCKET = process.env.BUCKET
 
 module.exports = {
     sign_s3: (req, res) => {
+        console.log("req.body", req.body);
         const s3 = new aws.S3();
         const fileName = req.body.fileName;
         const fileType = req.body.fileType;
@@ -23,6 +24,7 @@ module.exports = {
             ContentType: fileType,
             ACL: 'public-read'
         };
+        console.log("after object");
         // Make a request to the S3 API to get a signed URL which we can use to upload our file
         s3.getSignedUrl('putObject', s3Params, (err, data) => {
             if (err) {
