@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 
 
-function Card() {
+export function Card() {
     return (
         <div className="card">
             <img src="..." class="card-img-top" alt="..."></img>
