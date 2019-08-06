@@ -30,31 +30,33 @@ class UploadImage extends Component {
         fileName: fileName,
         fileType: fileType
     }
-    console.log("Preparing the upload");
+    console.log("Preparing the upload", imageDetails);
 
     API.s3Upload(imageDetails)
     .then(response => {
+      console.log("response", response);
       var returnData = response.data.data.returnData;
       var signedRequest = returnData.signedRequest;
       var url = returnData.url;
 
       console.log(returnData, signedRequest, url, response)
-    //   this.setState({url: url})
-    //   console.log("Recieved a signed request " + signedRequest);
+      this.setState({url: url})
+      console.log("Recieved a signed request " + signedRequest);
 
-    //   var options = {
-    //     headers: {
-    //       'Content-Type': fileType
-    //     }
-    //   };
-    //   axios.put(signedRequest,file,options)
-    //   .then(result => {
-    //     console.log("Response from s3")
-    //     this.setState({success: true});
-    //   })
-    //   .catch(error => {
-    //     alert("ERROR " + JSON.stringify(error));
-    //   })
+      var options = {
+        headers: {
+          'Key': fileName,
+          'Content-Type': fileType
+        }
+      };
+      axios.put(signedRequest,file,options)
+      .then(result => {
+        console.log("Response from s3")
+        this.setState({success: true});
+      })
+      .catch(error => {
+        alert("ERROR " + JSON.stringify(error));
+      })
     })
     .catch(error => {
       alert(JSON.stringify(error));

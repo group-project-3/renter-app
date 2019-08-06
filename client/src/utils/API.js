@@ -32,7 +32,7 @@ export default {
 
   // AWS
   s3Upload: (imageDetails) => {
-    return axios.post("/api/aws/upload")
+    return axios.post("/api/aws", imageDetails);
   },
 
  // Location
