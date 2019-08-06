@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Col, Row, Container } from "../../components/Grid/Grid";
 import { Input, PasswordInput, FormBtn } from "../../components/Form/Form"
 import API from "../../utils/API";
+import "./style.css";
 
 class LogIn extends Component {
     state = {
@@ -37,22 +38,24 @@ class LogIn extends Component {
                             <h1>Log-In</h1>
                             <br></br>
                             <form>
+                                <p>Username</p>
                                 <Input
                                     value={this.state.username}
                                     onChange={this.handleInputChange}
                                     name="username"
-                                    placeholder="Enter Username"
+                                    placeholder="Enter Your Username"
                                 />
 
+                                <p>Password</p>
                                 <PasswordInput
                                     value={this.state.password}
                                     onChange={this.handleInputChange}
                                     name="password"
-                                    placeholder="Enter Password"
+                                    placeholder="Enter Your Password"
                                 />
 
                                 <FormBtn onClick={this.handleFormSubmit}>
-                                    Submit
+                                    Log In
                                 </FormBtn>
                             </form>
                         </Col>

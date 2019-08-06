@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid/Grid";
 import { Input, EmailInput, PasswordInput, FormBtn } from "../../components/Form/Form"
+import "./style.css"
 
 
 class Register extends Component {
@@ -38,23 +39,26 @@ class Register extends Component {
                 <Row>
                     <Col size="md-3"></Col>
                     <Col size="md-6">
-                        <h1>Register</h1>
+                        <h1>Register a New Account</h1>
                         <br></br>
                         <form>
+                            <p>First Name</p>
                             <Input
                             value={this.state.first_name}
                             onChange={this.handleInputChange}
                             name="first_name"
-                            placeholder="First Name"
+                            placeholder="Please Enter Your First Name"
                             />
 
+                            <p>Last Name</p>
                             <Input
                             value={this.state.last_name}
                             onChange={this.handleInputChange}
                             name="last_name"
-                            placeholder="Last Name"
+                            placeholder="Please Enter Your Last Name"
                             />
 
+                            <p>Email</p>
                             <EmailInput
                             value={this.state.email_address}
                             onChange={this.handleInputChange}
@@ -62,6 +66,7 @@ class Register extends Component {
                             placeholder="Please Enter Your Email Address"
                             />
 
+                            <p>Username</p>
                             <Input
                             value={this.state.username}
                             onChange={this.handleInputChange}
@@ -69,6 +74,7 @@ class Register extends Component {
                             placeholder="Create a Username"
                             />
 
+                            <p>Password</p>
                             <PasswordInput
                             value={this.state.password}
                             onChange={this.handleInputChange}
@@ -76,6 +82,7 @@ class Register extends Component {
                             placeholder="Please Enter a Password"
                             />
 
+                            <p>Confirm Password</p>
                             <PasswordInput
                             value={this.state.password_confirm}
                             onChange={this.handleInputChange}
@@ -83,7 +90,7 @@ class Register extends Component {
                             placeholder="Please Confirm Your Password"
                             />
                             <FormBtn onClick={this.handleFormSubmit}>
-                                Submit
+                                Register
                             </FormBtn>
                         </form>
                     </Col>
