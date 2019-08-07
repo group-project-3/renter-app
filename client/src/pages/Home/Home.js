@@ -30,10 +30,9 @@ class Home extends Component {
           <div>
               <Container fluid>
                   <Row>                      
-                      <Col size="md-3">
+                      <Col size="md-3"> 
                           <h1>Item Name</h1>
                           <br></br>
-                          < Card />
                       </Col>                     
                   </Row>
               </Container>
