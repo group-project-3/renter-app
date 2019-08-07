@@ -27,10 +27,24 @@ export default {
   createItem: function () {
     return axios.post("/api/items/create");
   },
-  rentItem: () => { },
+  // rentItem: () => { },
   
   // Location
   findAllLocations: () => {
     return axios.get("/api/locations");
+  },
+
+  // Items Rented
+  findAllRentedItems: () => {
+    return axios.get("api/itemsRented")
+  },
+  findItemItemsByUser: () => {
+    return axios.get("/api/itemsRented/:user")
+  },
+  rentItem: () => {
+    return axios.post("/api/itemsRented/rentItem")
+  },
+  returnItem: () => {
+    return axios.post("api/itemsRented/returnItem")
   }
 };
