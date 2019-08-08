@@ -31,8 +31,15 @@ class PostItem extends Component {
         
     }
 
+    handleImageChange = event => {
+        this.setState({image: event.target.files[0]}, this.callback)
+    }
+
     handleImageUpload = event => {
-        API.uploadImage(this.state.image)
+        let data = {'image': this.state.image};
+        let headers = {Authorization: 'Client-ID' + process.env.IMGUR_CLIENT_ID};
+
+        API.uploadImage(data)
         .then(response => {
             console.log(response);
         })
@@ -74,7 +81,7 @@ class PostItem extends Component {
                             placeholder="Please Enter a Price"
                             />
 
-                            <UploadImage handleInputChange={this.handleInputChange}/>
+                            <UploadImage handleImageChange={this.handleImageChange}/>
                             <FormBtn onClick={this.handleFormSubmit} onClick={this.handleImageUpload}>
                                 Submit
                             </FormBtn>

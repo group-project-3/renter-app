@@ -36,14 +36,16 @@ export default {
   },
 
   //imgur upload
-  uploadImage: (image) => {
-    return axios({
+  uploadImage: (data) => {
+
+     return axios({
         method: 'post',
         crossDomain: true,
         url: 'https://api.imgur.com/3/upload',
-        data: {'image': image},
+        data: {'image': data},
         headers: {Authorization: 'Client-ID ' + process.env.IMGUR_CLIENT_ID},
     });
+
   }
 
 };

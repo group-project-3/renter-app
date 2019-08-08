@@ -6,7 +6,7 @@ export default function UploadImage(props) {
     <div>
         <center>
           <h1>UPLOAD AN IMAGE</h1>
-          <input onChange={props.handleInputChange} name="image" value={props.image} type="file"/>
+          <input onChange={props.handleImageChange} name="image" value={props.image} type="file"/>
         </center>
       </div>
   )
