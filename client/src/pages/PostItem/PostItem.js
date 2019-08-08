@@ -3,6 +3,7 @@ import { Col, Row, Container } from "../../components/Grid/Grid";
 import { Input, EmailInput, PasswordInput, PriceInput, TextArea, FileInput, FormBtn } from "../../components/Form/Form"
 import UploadImage from "../../components/UploadImage/UploadImage";
 import API from "../../utils/API";
+import axios from "axios";
 
 
 class PostItem extends Component {
@@ -39,7 +40,8 @@ class PostItem extends Component {
         let data = {'image': this.state.image};
         let headers = {Authorization: 'Client-ID' + process.env.IMGUR_CLIENT_ID};
 
-        API.uploadImage(data)
+        // API.imageUpload(data)
+        axios.post('http://api.imgur.com/3/upload', data, headers)
         .then(response => {
             console.log(response);
         })
