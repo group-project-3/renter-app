@@ -30,6 +30,11 @@ export default {
 
   rentItem: () => { },
 
+  // AWS
+  s3Upload: (imageDetails) => {
+    return axios.post("/api/aws", imageDetails);
+  },
+
  // Location
  findAllLocations: () => {
   return axios.get("/api/locations");
