@@ -14,28 +14,25 @@ module.exports = {
         // response.json(request.user);
         response.json("return authenticated user")
     },
-    login: (request, response) => {
+login: (request, response) => {
         db.User.findOne({ username: request.body.username })
-            .then(dbModel => {
-                let passwordEntered = hashpass(request.body.password, dbModel.salt);
-                let storedPassword = dbModel.password
-                if (passwordEntered.hash === storedPassword) {
-                    let uuid = uuidv1()
-                    db.User.updateOne({ "username": request.body.username }, { $set: { "session_token": uuid } },
-                        function (error, edited) {
-                            if (error) {
-                                console.log(error);
-                                response.send(error);
-                            }
+            .then(userModel => {
+                let passwordEntered = hashpass(request.body.password, userModel.salt);
+                if (passwordEntered.hash === userModel.password) {
+                    let uuid = uuidv1();
+                    db.User.findOneAndUpdate({ "username": request.body.username }, { "session_token": uuid })
+                        .then(userModel => {
+                            userModel.password = undefined
+                            userModel.salt = undefined
+                            userModel.session_token = undefined
+                            response.header('x-session-token', uuid).status(200).json(userModel);
                         })
+                        .catch(err => response.status(422).json(err))
                 } else {
-                    console.log("sorry not a match")
+                    response.json("Invalid username or password");
                 }
-
             })
-            .catch(err => {
-                response.json(err);
-            });
+            .catch(err => response.status(422).json(err))
     },
     logout: (request, response) => {
         db.User.findOne({ username: request.body.username })
