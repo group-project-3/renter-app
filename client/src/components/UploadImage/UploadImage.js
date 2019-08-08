@@ -1,105 +1,13 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
-import API from "../../utils/API"
-import axios from "axios"
 
+export default function UploadImage(props) {
 
-class UploadImage extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      success : false,
-      url : "",
-      error: false,
-      errorMessage : ""
-    }
-  }
-
-  handleChange = (ev) => {
-    this.setState({success: false, url : ""});
-
-  }
-  handleUpload = (ev) => {
-    let file = this.uploadInput.files[0];
-    // Split the filename to get the name and type
-    let fileParts = this.uploadInput.files[0].name.split('.');
-    let fileName = fileParts[0];
-    let fileType = fileParts[1];
-
-    let imageDetails = {
-        fileName: fileName,
-        fileType: fileType
-    }
-    console.log("Preparing the upload", imageDetails);
-
-    API.s3Upload(imageDetails)
-    .then(response => {
-      console.log("response", response);
-      var returnData = response.data.data.returnData;
-      var signedRequest = returnData.signedRequest;
-      var url = returnData.url;
-
-      console.log(returnData, signedRequest, url, response)
-      this.setState({url: url})
-      console.log("Recieved a signed request " + signedRequest);
-
-      var options = {
-        headers: {
-          'Key': fileName,
-          'Content-Type': fileType
-        }
-      };
-      axios.put(signedRequest,file,options)
-      .then(result => {
-        console.log("Response from s3")
-        this.setState({success: true});
-      })
-      .catch(error => {
-        alert("ERROR " + JSON.stringify(error));
-      })
-    })
-    .catch(error => {
-      alert(JSON.stringify(error));
-    })
-  }
-
-
-  render() {
-    const SuccessMessage = () => (
-      <div style={{padding:50}}>
-        <h3 style={{color: 'green'}}>SUCCESSFUL UPLOAD</h3>
-        <a href={this.state.url}>Access the file here</a>
-        <br/>
-      </div>
-    )
-    const ErrorMessage = () => (
-      <div style={{padding:50}}>
-        <h3 style={{color: 'red'}}>FAILED UPLOAD</h3>
-        <span style={{color: 'red', backgroundColor: 'black'}}>ERROR: </span>
-        <span>{this.state.errorMessage}</span>
-        <br/>
-      </div>
-    )
-    return (
-      <div className="App">
+  return (
+    <div>
         <center>
           <h1>UPLOAD A FILE</h1>
-          {this.state.success ? <SuccessMessage/> : null}
-          {this.state.error ? <ErrorMessage/> : null}
-          <input onChange={this.handleChange} ref={(ref) => { this.uploadInput = ref; }} type="file"/>
-          <br/>
-          <button onClick={this.handleUpload}>UPLOAD</button>
+          <input onChange={props.handleInputChange} name="image" value="image" type="file"/>
         </center>
       </div>
-    );
-  }
+  )
 }
-
-export default UploadImage;
-=======
-import axios from 'axios';
-import API from '../../utils/API';
-
-
->>>>>>> parent of cf6144c... commiting imgur changes before reverting to s3
-

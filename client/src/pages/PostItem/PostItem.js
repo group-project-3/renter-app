@@ -11,7 +11,8 @@ class PostItem extends Component {
         item_description: "",
         // location_id: "",
         // owner_id: "",
-        price: ""
+        price: "",
+        image: null
     };
 
     callback = () => {
@@ -61,7 +62,7 @@ class PostItem extends Component {
                             placeholder="Please Enter a Price"
                             />
 
-                            <UploadImage />
+                            <UploadImage handleInputChange={this.handleInputChange}/>
                             <FormBtn onClick={this.handleFormSubmit}>
                                 Submit
                             </FormBtn>
