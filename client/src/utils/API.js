@@ -38,11 +38,6 @@ export default {
  // Location
  findAllLocations: () => {
   return axios.get("/api/locations");
-  },
-
-  //Imgur Upload
-  imageUpload: (headers, data) => {
-    return axios.post("https://api.imgur.com/3/upload" + headers + data)
   }
 
 };

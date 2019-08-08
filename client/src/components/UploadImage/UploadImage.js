@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+<<<<<<< HEAD
 import API from "../../utils/API"
 import axios from "axios"
 
@@ -95,4 +96,10 @@ class UploadImage extends Component {
 }
 
 export default UploadImage;
+=======
+import axios from 'axios';
+import API from '../../utils/API';
+
+
+>>>>>>> parent of cf6144c... commiting imgur changes before reverting to s3
 
