@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Col, Row, Container } from "../../components/Grid/Grid";
 import { Input, EmailInput, PasswordInput, PriceInput, TextArea, FileInput, FormBtn } from "../../components/Form/Form"
 import UploadImage from "../../components/UploadImage/UploadImage";
+import API from "../../utils/API";
 
 
 class PostItem extends Component {
@@ -29,6 +30,17 @@ class PostItem extends Component {
         console.log(this.state);
         
     }
+
+    handleImageUpload = event => {
+        API.uploadImage(this.state.image)
+        .then(response => {
+            console.log(response);
+        })
+        .catch(error => {
+            console.log(error);
+        });
+
+    }   
 
 
     render() {
@@ -63,7 +75,7 @@ class PostItem extends Component {
                             />
 
                             <UploadImage handleInputChange={this.handleInputChange}/>
-                            <FormBtn onClick={this.handleFormSubmit}>
+                            <FormBtn onClick={this.handleFormSubmit} onClick={this.handleImageUpload}>
                                 Submit
                             </FormBtn>
                         </form>

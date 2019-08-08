@@ -33,6 +33,17 @@ export default {
  // Location
  findAllLocations: () => {
   return axios.get("/api/locations");
+  },
+
+  //imgur upload
+  uploadImage: (image) => {
+    return axios({
+        method: 'post',
+        crossDomain: true,
+        url: 'https://api.imgur.com/3/upload',
+        data: {'image': image},
+        headers: {Authorization: 'Client-ID ' + process.env.IMGUR_CLIENT_ID},
+    });
   }
 
 };
