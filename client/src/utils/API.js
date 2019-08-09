@@ -27,8 +27,7 @@ export default {
   createItem: function (itemObject) {
     return axios.post("/api/items/create", itemObject);
   },
-  // rentItem: () => { },
-  
+
   // Location
   findAllLocations: () => {
     return axios.get("/api/locations");
@@ -44,7 +43,22 @@ export default {
   rentItem: (item_id) => {
     return axios.post("/api/itemsRented/rentItem", item_id)
   },
+
   returnItem: (item_id) => {
     return axios.post("api/itemsRented/returnItem", item_id)
-  }
+  },
+  
+   //imgur upload
+   imageUpload: (bodyFormData) => {
+
+    return axios({
+        url: 'https://api.imgur.com/3/image',
+        method: 'POST',
+        headers: {
+          'Authorization': 'Client-ID 4ab89fea97d23c8',
+          'Content-Type': "multipart/form-data"
+          },
+        data: bodyFormData,
+        })
+      }
 };

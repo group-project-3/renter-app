@@ -8,6 +8,7 @@ import LogIn from "./pages/LogIn/LogIn"
 import PostItem from './pages/PostItem/PostItem';
 import RentItem from './pages/RentItem/RentItem';
 import AccountSettings from './pages/AccountSettings/AccountSettings';
+import UploadImage from "./components/UploadImage/UploadImage"
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
 
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/upload" component={UploadImage} />
         <Route exact path="/PostItem" component={PostItem} />
         <Route exact path="/RentItem" component={RentItem} />
         <Route exact path="/LogIn" component={LogIn} />
