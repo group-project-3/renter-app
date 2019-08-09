@@ -5,8 +5,9 @@ export default function UploadImage(props) {
   return (
     <div>
         <center>
-          <h1>UPLOAD AN IMAGE</h1>
+          <h5>UPLOAD AN IMAGE</h5>
           <input onChange={props.handleImageChange} name="image" value={props.image} type="file"/>
+          <br />
         </center>
       </div>
   )

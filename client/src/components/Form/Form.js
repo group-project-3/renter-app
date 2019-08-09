@@ -13,14 +13,8 @@ export function Input(props) {
 export function PriceInput(props) {
   return (
 
-    <div className="input-group mb-3">
-      <div className="input-group-prepend">
-        <span className="input-group-text">$</span>
-      </div>
-      <input type="text" className="form-control" aria-label="Amount (to the nearest dollar)" />
-    <div className="input-group-append">
-      <span className="input-group-text">.00</span>
-    </div>
+    <div className="form-group">
+      <input className="form-control" type="number" {...props} />
     </div>
 
   );
@@ -56,7 +50,7 @@ export function PasswordInput(props) {
 export function TextArea(props) {
   return (
     <div className="form-group">
-      <textarea className="form-control" rows="5" {...props} />
+      <textarea className="form-control" rows="4" {...props} />
     </div>
   );
 }

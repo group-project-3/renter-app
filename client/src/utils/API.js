@@ -24,7 +24,7 @@ export default {
   findItemsByUserId: () => {
     return axios.get("/api/items/:userid");
   },
-  createItem: function () {
+  createItem: function (newItem) {
     return axios.post("/api/items/create");
   },
 
