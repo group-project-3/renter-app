@@ -10,11 +10,11 @@ router
     .get(itemsRentedController.findItemsRentedByUser)
     itemsRentedController
 router
-    .route("/rent")
-    .post(itemsRentedController.rent)
+    .route("/rentItem")
+    .post(itemsRentedController.rentItem)
 
 router
-    .route("/return")
-    .post(itemsRentedController.return)
+    .route("/returnItem")
+    .post(itemsRentedController.returnItem)
 
 module.exports = router;

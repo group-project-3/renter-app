@@ -8,11 +8,12 @@ mongoose.connect(MONGO_URI, { useNewUrlParser: true });
 
 module.exports = {
     create: (request, response) => {
+        console.log(request.body)
         let newItem = {
             item_name: request.body.item_name,
             url: "http://via.placeholder.com/300x300",
             item_description: request.body.item_description,
-            // location_id: 
+            location_id: request.body.location_id,
             owner_id: "5d462d0e1647411259e5f070",
             price: request.body.price,
             available: true
