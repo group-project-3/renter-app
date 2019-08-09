@@ -3,7 +3,9 @@ import { Col, Row, Container } from "../../components/Grid/Grid";
 import { Input, EmailInput, PasswordInput, PriceInput, TextArea, FileInput, FormBtn } from "../../components/Form/Form"
 import UploadImage from "../../components/UploadImage/UploadImage";
 import API from "../../utils/API";
+import "dotenv";
 import axios from "axios";
+import { set } from "mongoose";
 
 
 class PostItem extends Component {
@@ -11,8 +13,6 @@ class PostItem extends Component {
         item_name: "",
         url: [],
         item_description: "",
-        // location_id: "",
-        // owner_id: "",
         price: "",
         image: null
     };
@@ -37,18 +37,17 @@ class PostItem extends Component {
     }
 
     handleImageUpload = event => {
-        let data = {'image': this.state.image};
-        let headers = {Authorization: 'Client-ID' + process.env.IMGUR_CLIENT_ID};
+        event.preventDefault();
+        var bodyFormData = new FormData();
+        bodyFormData.append('image',  this.state.image);
 
-        // API.imageUpload(data)
-        axios.post('http://api.imgur.com/3/upload', data, headers)
-        .then(response => {
-            console.log(response);
+        API.imageUpload(bodyFormData)
+        .then(res => {
+            console.log(res)
+            this.setState({url: res.data.data.link}, this.callback)
+        }).catch(err => {
+            console.log(err);
         })
-        .catch(error => {
-            console.log(error);
-        });
-
     }   
 
 
