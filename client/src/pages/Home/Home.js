@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../../components/Card/Card.js";
+import Card from "../../components/Card/Card.js";
 import { Container, Row, Col} from "../../components/Grid/Grid.js"
 
 // export default function Home() {
@@ -13,7 +13,7 @@ import { Container, Row, Col} from "../../components/Grid/Grid.js"
 //       </div>
 //     );
 //   }
-class Card extends Component {
+class Home extends Component {
   // state = {
   //   item_name: "",
   //   url: "",
@@ -30,7 +30,7 @@ class Card extends Component {
           <div>
               <Container fluid>
                   <Row>                      
-                      <Col size="md-3">
+                      <Col size="md-3"> 
                           <h1>Item Name</h1>
                           <br></br>
                       </Col>                     

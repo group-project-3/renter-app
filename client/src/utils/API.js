@@ -28,15 +28,27 @@ export default {
     return axios.post("/api/items/create");
   },
 
-  rentItem: () => { },
-
- // Location
- findAllLocations: () => {
-  return axios.get("/api/locations");
+  // Location
+  findAllLocations: () => {
+    return axios.get("/api/locations");
   },
 
-  //imgur upload
-  imageUpload: (bodyFormData) => {
+  // Items Rented
+  findAllRentedItems: () => {
+    return axios.get("api/itemsRented")
+  },
+  findItemItemsByUser: () => {
+    return axios.get("/api/itemsRented/:user")
+  },
+  rentItem: () => {
+    return axios.post("/api/itemsRented/rentItem")
+  },
+  returnItem: () => {
+    return axios.post("api/itemsRented/returnItem")
+  },
+
+   //imgur upload
+   imageUpload: (bodyFormData) => {
 
     return axios({
         url: 'https://api.imgur.com/3/image',
@@ -47,7 +59,5 @@ export default {
           },
         data: bodyFormData,
         })
-
-  }
-
+      }
 };
