@@ -27,6 +27,7 @@
     "hashpass": "0.0.0",
     "if-env": "^1.0.4",
     "mongoose": "^5.3.16",
+    "react-router-dom": "^5.0.1",
     "uuid": "^3.3.2"
   }
 }
