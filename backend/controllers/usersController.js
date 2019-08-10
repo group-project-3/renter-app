@@ -4,6 +4,7 @@ const uuidv1 = require('uuid');
 require("dotenv").config();
 
 const db = require("../models");
+const gmail = require("./emailController")
 
 const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost/renter-app";
 mongoose.connect(MONGO_URI, { useNewUrlParser: true });
@@ -14,7 +15,7 @@ module.exports = {
         // response.json(request.user);
         response.json("return authenticated user")
     },
-login: (request, response) => {
+    login: (request, response) => {
         db.User.findOne({ username: request.body.username })
             .then(userModel => {
                 let passwordEntered = hashpass(request.body.password, userModel.salt);
@@ -62,6 +63,8 @@ login: (request, response) => {
             response.status(400).json({ 'error': 'passwords do not match' });
         } else {
             let hashedPassword = hashpass(request.body.password);
+            // let userRequest = createUserObject(request)
+
             let userRequest = {
                 first_name: request.body.first_name,
                 last_name: request.body.last_name,
@@ -77,7 +80,20 @@ login: (request, response) => {
                 .then(dbModel => response.json(dbModel))
                 .catch(err => response.status(422).json(err));
             console.log("user created")
+            // let userRequest = createUserObject(request)
+            gmail.sendWelcomeEmail(userRequest)
         }
     }
 
 }
+// createUserObject = (request) => {
+//     return userRequest = {
+//         first_name: request.body.first_name,
+//         last_name: request.body.last_name,
+//         email_address: request.body.email_address,
+//         username: request.body.username,
+//         password: hashedPassword.hash,
+//         salt: hashedPassword.salt,
+//         session_token: ""
+//     };
+// }
