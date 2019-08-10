@@ -3,7 +3,6 @@ import ReactDOM from "react-dom"
 import { Col, Row, Container } from "../../components/Grid/Grid";
 import { Input, EmailInput, PasswordInput, PriceInput, TextArea, FileInput, FormBtn } from "../../components/Form/Form"
 import UploadImage from "../../components/UploadImage/UploadImage";
-import Modal from "../../components/Modal/Modal"
 import API from "../../utils/API";
 
 
@@ -14,14 +13,7 @@ class PostItem extends Component {
         item_description: "",
         price: "",
         image: null,
-        show: false
     };
-
-    showModal = (event) => {
-        this.setState({
-            show: !this.state.show
-        })
-    }
 
     callback = () => {
         console.log(this.state);
@@ -71,7 +63,6 @@ class PostItem extends Component {
                 <Row>
                     <Col size="md-3"></Col>
                     <Col size="md-6">
-                    <Modal onClose={this.showModal} show={this.state.show} >Message to Modal</Modal>
                         <h1>Post an Item</h1>
                         <br></br>
                         <form>
@@ -106,10 +97,6 @@ class PostItem extends Component {
                     </Col>
                     <Col size="md-3"></Col>
                 </Row>
-                <button  onClick={e => {
-                                    this.showModal();
-                                }}
-                                > show Modal </button>
             </Container>
 
         </div>

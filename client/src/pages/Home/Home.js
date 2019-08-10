@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Card from "../../components/Card/Card.js";
 import Wrapper from "../../components/Wrapper";
 // import { Container, Row, Col } from "../../components/Grid/Grid.js";
+import Modal from "../../components/Modal/Modal";
 import API from "../../utils/API.js";
 class Home extends Component {
    state = {
@@ -9,7 +10,9 @@ class Home extends Component {
        item: "",
        description: "",
        price: "",
-       item_id: ""
+       item_id: "",
+       visible: false  
+
    }
    componentDidMount() {
        this.findItems();
@@ -26,11 +29,16 @@ class Home extends Component {
            console.log('state: ', this.state.items)
        })
    }
+
+   showModal = (event) => {
+    this.setState({show: !this.state.show})}
+
    render() {
        return (
            <div>
                 <Wrapper>
                    {this.state.items.map(item =>
+                    <div>
                        <Card
                            handleRentItem={this.handleRentItem}
                            handleReturnItem={this.handleReturnItem}
@@ -41,7 +49,10 @@ class Home extends Component {
                            url={item.url}
                            price={item.price}
                            available={item.available}
+                           showModal={this.showModal}
                        />
+                       <Modal />
+                       </div>
                    )}
                    </Wrapper>
            </div>
