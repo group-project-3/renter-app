@@ -17,12 +17,10 @@ class PostItem extends Component {
         show: false
     };
 
-    showModal = () => {
-        this.setState({show: true})
-    }
-
-    hideModal = () => {
-        this.setState({show: false})
+    showModal = (event) => {
+        this.setState({
+            show: !this.state.show
+        })
     }
 
     callback = () => {
@@ -101,12 +99,19 @@ class PostItem extends Component {
                             <FormBtn onClick={this.handleFormSubmit} onClick={this.handleImageUpload}>
                                 Submit
                             </FormBtn>
-                            <FormBtn onClick={this.show}>MODAL TEST</FormBtn>
+
+                            <Modal onClose={this.showModal} show={this.state.show} >Message to Modal</Modal>
                         </form>
                     </Col>
                     <Col size="md-3"></Col>
                 </Row>
             </Container>
+
+            <button  onClick={e => {
+              this.showModal();
+         }}
+          > show Modal </button>
+
         </div>
         );
     };
