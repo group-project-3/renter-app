@@ -25,62 +25,61 @@ class LogIn extends Component {
         }
 
         API.login(loginObj)
-            .then(res => {
-                if (res.status == 200) {
-                    this.setState({ redirect: true })
-                    localStorage.setItem("x-session-token", res.headers["x-session-token"])
-                } else {
-                    res.json(404)
-                }
-            })
+            .then(res => console.log(res))
             .catch(err => console.log(err));
 
-        render() {
-            if (this.state.redirect === true) {
-                return <Redirect to='/' />
-            }
-            return (
-                <Router>
-                    <Switch>
-                        <div>
-                            <Container fluid>
-                                <Row>
-                                    <Col size="md-3"></Col>
-                                    <Col size="md-6">
-                                        <h1>Log-In</h1>
-                                        <br></br>
-                                        <form>
-                                            <p>Username</p>
-                                            <Input
-                                                value={this.state.username}
-                                                onChange={this.handleInputChange}
-                                                name="username"
-                                                placeholder="Enter Your Username"
-                                            />
-
-                                            <p>Password</p>
-                                            <PasswordInput
-                                                value={this.state.password}
-                                                onChange={this.handleInputChange}
-                                                name="password"
-                                                placeholder="Enter Your Password"
-                                            />
-                                            <FormBtn onClick={this.handleFormSubmit} >
-                                                Log In
-                                        </FormBtn>
-
-                                        </form>
-                                    </Col>
-                                    <Col size="md-3"></Col>
-                                </Row>
-                            </Container>
-                        </div>
-                    </Switch>
-                </Router>
-            );
-        }
+        this.setState({ redirect: true })
 
     }
 
+    render() {
+        if (this.state.redirect === true) {
+            return <Redirect to='/' />
+        }
+        return (
+            <Router>
+                <Switch>
+                    <div>
+                        <Container fluid>
+                            <Row>
+                                <Col size="md-3"></Col>
+                                <Col size="md-6">
+                                    <h1>Log-In</h1>
+                                    <br></br>
+                                    <form>
+                                        <p>Username</p>
+                                        <Input
+                                            value={this.state.username}
+                                            onChange={this.handleInputChange}
+                                            name="username"
+                                            placeholder="Enter Your Username"
+                                            required=""
+                                        />
 
-    export default LogIn;
+                                        <p>Password</p>
+                                        <PasswordInput
+                                            value={this.state.password}
+                                            onChange={this.handleInputChange}
+                                            name="password"
+                                            placeholder="Enter Your Password"
+                                            required=""
+                                        />
+                                        <FormBtn onClick={this.handleFormSubmit} >
+                                            Log In
+                                        </FormBtn>
+
+                                    </form>
+                                </Col>
+                                <Col size="md-3"></Col>
+                            </Row>
+                        </Container>
+                    </div>
+                </Switch>
+            </Router>
+        );
+    }
+
+}
+
+
+export default LogIn;
