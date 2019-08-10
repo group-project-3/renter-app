@@ -34,6 +34,7 @@ class LogIn extends Component {
                 }
             })
             .catch(err => console.log(err));
+        }
 
         render() {
             if (this.state.redirect === true) {
@@ -83,4 +84,6 @@ class LogIn extends Component {
     }
 
 
-    export default LogIn;
+
+
+export default LogIn;
