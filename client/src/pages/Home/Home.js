@@ -11,7 +11,7 @@ class Home extends Component {
        description: "",
        price: "",
        item_id: "",
-
+       visable: false
    }
    componentDidMount() {
        this.findItems();
@@ -32,6 +32,20 @@ class Home extends Component {
    handleImageChange = event => {
     this.setState({image: event.target.files[0]}, this.callback)
     }
+
+    handleOk = e => {
+        console.log(e);
+        this.setState({
+          visible: false,
+        });
+      };
+    
+    handleCancel = e => {
+    console.log(e);
+    this.setState({
+        visible: false,
+    });
+    };
 
    render() {
        return (
