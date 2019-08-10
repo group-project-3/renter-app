@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import ReactDOM from "react-dom"
 import { Col, Row, Container } from "../../components/Grid/Grid";
 import { Input, EmailInput, PasswordInput, PriceInput, TextArea, FileInput, FormBtn } from "../../components/Form/Form"
 import UploadImage from "../../components/UploadImage/UploadImage";
+import Modal from "../../components/Modal/Modal"
 import API from "../../utils/API";
 
 
@@ -11,13 +13,21 @@ class PostItem extends Component {
         url: "",
         item_description: "",
         price: "",
-        image: null
+        image: null,
+        show: false
     };
+
+    showModal = () => {
+        this.setState({show: true})
+    }
+
+    hideModal = () => {
+        this.setState({show: false})
+    }
 
     callback = () => {
         console.log(this.state);
     }
-
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({[name]: value}, this.callback);
@@ -91,6 +101,7 @@ class PostItem extends Component {
                             <FormBtn onClick={this.handleFormSubmit} onClick={this.handleImageUpload}>
                                 Submit
                             </FormBtn>
+                            <FormBtn onClick={this.show}>MODAL TEST</FormBtn>
                         </form>
                     </Col>
                     <Col size="md-3"></Col>
