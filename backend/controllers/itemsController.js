@@ -10,7 +10,7 @@ module.exports = {
     create: (request, response) => {
         let newItem = {
             item_name: request.body.item_name,
-            url: "http://via.placeholder.com/300x300",
+            url: request.body.url,
             item_description: request.body.item_description,
             // location_id: 
             owner_id: "5d462d0e1647411259e5f070",
