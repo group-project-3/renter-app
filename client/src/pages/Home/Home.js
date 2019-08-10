@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Card from "../../components/Card/Card.js";
 import Wrapper from "../../components/Wrapper";
 // import { Container, Row, Col } from "../../components/Grid/Grid.js";
-import Modal from "../../components/Modal/Modal";
 import API from "../../utils/API.js";
 class Home extends Component {
    state = {
@@ -11,7 +10,6 @@ class Home extends Component {
        description: "",
        price: "",
        item_id: "",
-       visible: false  
 
    }
    componentDidMount() {
@@ -30,8 +28,9 @@ class Home extends Component {
        })
    }
 
-   showModal = (event) => {
-    this.setState({show: !this.state.show})}
+   handleImageChange = event => {
+    this.setState({image: event.target.files[0]}, this.callback)
+    }
 
    render() {
        return (
@@ -49,7 +48,6 @@ class Home extends Component {
                            url={item.url}
                            price={item.price}
                            available={item.available}
-                           showModal={this.showModal}
                        />
                        <Modal />
                        </div>
