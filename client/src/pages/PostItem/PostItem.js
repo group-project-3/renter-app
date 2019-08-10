@@ -71,6 +71,7 @@ class PostItem extends Component {
                 <Row>
                     <Col size="md-3"></Col>
                     <Col size="md-6">
+                    <Modal onClose={this.showModal} show={this.state.show} >Message to Modal</Modal>
                         <h1>Post an Item</h1>
                         <br></br>
                         <form>
@@ -100,17 +101,16 @@ class PostItem extends Component {
                                 Submit
                             </FormBtn>
 
-                            <Modal onClose={this.showModal} show={this.state.show} >Message to Modal</Modal>
+                            
                         </form>
                     </Col>
                     <Col size="md-3"></Col>
                 </Row>
+                <button  onClick={e => {
+                                    this.showModal();
+                                }}
+                                > show Modal </button>
             </Container>
-
-            <button  onClick={e => {
-              this.showModal();
-         }}
-          > show Modal </button>
 
         </div>
         );

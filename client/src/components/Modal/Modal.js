@@ -21,8 +21,8 @@
 import React from "react";
 export default class Modal extends React.Component {
     onClose = e => {
-        e.preventDefault();
-        this.props.onClose && this.props.onClose(e);
+        console.log(this.props)
+        // this.props.showModal();
       };
     render() {
         if(!this.props.show){
@@ -33,7 +33,7 @@ export default class Modal extends React.Component {
                 <div>{this.props.children}</div>
                 <div>
                 <button
-                onClose={e => {this.onClose(e);}}
+                onClose={this.onClose()}
                     >
                 Close
           </button>
