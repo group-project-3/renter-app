@@ -17,18 +17,17 @@ export default {
   
   // Item
   findAllItems: function () {
-    return axios.prototype("/api/items");
+    return axios.get("/api/items");
   },
   findItemById: () => {},
   findItemByUserId: () => {},
   findItemsByUserId: () => {
     return axios.get("/api/items/:userid");
   },
-  createItem: function () {
-    return axios.post("/api/items/create");
+  createItem: function (itemObject) {
+    return axios.post("/api/items/create", itemObject);
   },
-  // rentItem: () => { },
-  
+
   // Location
   findAllLocations: () => {
     return axios.get("/api/locations");
@@ -41,10 +40,25 @@ export default {
   findItemItemsByUser: () => {
     return axios.get("/api/itemsRented/:user")
   },
-  rentItem: () => {
-    return axios.post("/api/itemsRented/rentItem")
+  rentItem: (item_id) => {
+    return axios.post("/api/itemsRented/rentItem", item_id)
   },
-  returnItem: () => {
-    return axios.post("api/itemsRented/returnItem")
-  }
+
+  returnItem: (item_id) => {
+    return axios.post("api/itemsRented/returnItem", item_id)
+  },
+  
+   //imgur upload
+   imageUpload: (bodyFormData) => {
+
+    return axios({
+        url: 'https://api.imgur.com/3/image',
+        method: 'POST',
+        headers: {
+          'Authorization': 'Client-ID 4ab89fea97d23c8',
+          'Content-Type': "multipart/form-data"
+          },
+        data: bodyFormData,
+        })
+      }
 };
