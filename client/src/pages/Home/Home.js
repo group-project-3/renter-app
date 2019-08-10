@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Card from "../../components/Card/Card.js";
 import Wrapper from "../../components/Wrapper";
+import Modal from "../../components/Modal/Modal";
 // import { Container, Row, Col } from "../../components/Grid/Grid.js";
 import API from "../../utils/API.js";
 class Home extends Component {

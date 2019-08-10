@@ -18,6 +18,7 @@ class PostItem extends Component {
     callback = () => {
         console.log(this.state);
     }
+    
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({[name]: value}, this.callback);

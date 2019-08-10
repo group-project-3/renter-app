@@ -1,47 +1,8 @@
-// import React from "react";
-// import ReactDOM from "react-dom";
 
-
-// const Modal = ({children, onClose, open}) => 
-// open
-
-// // ? ReactDOM.createPortal(
-// //     <div className="modal">
-// //         <div className="modal_close" onClick={onClose}>&times;</div>
-// //         {children}
-// //     </div>,
-// //     document.body
-// // )
-// // :null
-// ReactDOM.createPortal(Modal, document.querySelector("#modal"))
-
-
-// export default Modal;
-
-// import React from "react";
-// // import "./modal.css";
-// export default class Modal extends React.Component {
-// //   onClose = e => {
-// //     this.props.onClose && this.props.onClose(e);
-// //   };
-//   render() {
-//     if (!this.props.show) {
-//       return null;
-//     }
-//     return (
-//       <div class="modal" id="modal">
-//         <h2>Modal Window</h2>
-//         <div class="content">{this.props.children}</div>
-//         <div class="actions">
-//           <button class="toggle-button" onClick={this.onClose}>
-//             close
-//           </button>
-//         </div>
-//       </div>
-//     );
-//   }
-// }
-
+import React from 'react';
+import ReactDOM from 'react-dom';
+import 'antd/dist/antd.css';
+import './style.css';
 import { Modal, Button } from 'antd';
 
 class App extends React.Component {
@@ -88,4 +49,6 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, mountNode);
+ReactDOM.render(<App />, document.getElementById('container'));
+
+export default Modal;
