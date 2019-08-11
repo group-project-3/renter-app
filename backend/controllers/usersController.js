@@ -5,6 +5,7 @@ require("dotenv").config();
 
 const db = require("../models");
 const gmail = require("./emailController")
+const location = require("./locationsController")
 
 const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost/renter-app";
 mongoose.connect(MONGO_URI, { useNewUrlParser: true });
@@ -18,6 +19,7 @@ module.exports = {
     login: (request, response) => {
         db.User.findOne({ username: request.body.username })
             .then(userModel => {
+                location.getCurrentLocation()
                 let passwordEntered = hashpass(request.body.password, userModel.salt);
                 if (passwordEntered.hash === userModel.password) {
                     let uuid = uuidv1();
@@ -71,6 +73,7 @@ module.exports = {
                 email_address: request.body.email_address,
                 username: request.body.username,
                 password: hashedPassword.hash,
+                location: request.body.location,
                 salt: hashedPassword.salt,
                 session_token: ""
             };

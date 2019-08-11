@@ -14,13 +14,13 @@ export default {
   create: function (newUser) {
     return axios.post("/api/users/create", newUser);
   },
-  
+
   // Item
   findAllItems: function () {
     return axios.get("/api/items");
   },
-  findItemById: () => {},
-  findItemByUserId: () => {},
+  findItemById: () => { },
+  findItemByUserId: () => { },
   findItemsByUserId: () => {
     return axios.get("/api/items/:userid");
   },
@@ -47,18 +47,18 @@ export default {
   returnItem: (item_id) => {
     return axios.post("api/itemsRented/returnItem", item_id)
   },
-  
-   //imgur upload
-   imageUpload: (bodyFormData) => {
+
+  //imgur upload
+  imageUpload: (bodyFormData) => {
 
     return axios({
-        url: 'https://api.imgur.com/3/image',
-        method: 'POST',
-        headers: {
-          'Authorization': 'Client-ID 4ab89fea97d23c8',
-          'Content-Type': "multipart/form-data"
-          },
-        data: bodyFormData,
-        })
-      }
+      url: 'https://api.imgur.com/3/image',
+      method: 'POST',
+      headers: {
+        'Authorization': 'Client-ID 4ab89fea97d23c8',
+        'Content-Type': "multipart/form-data"
+      },
+      data: bodyFormData,
+    })
+  }
 };
