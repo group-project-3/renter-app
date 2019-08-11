@@ -13,7 +13,7 @@ state = { visible: false };
   showMod
   render() {
     return (
-      <div>
+      <div id="modal">
         <Modal />
         <DatePick handleInputChange={this.props.handleInputChange} />
       </div>
