@@ -44,6 +44,7 @@ class Home extends Component {
     };
 
    handleReserve = e => {
+
         API.rentItem(this.state.item_id)
         .then(res => {
             console.log(res)
@@ -86,8 +87,8 @@ class Home extends Component {
                        <Card
                            handleRentItem={this.handleRentItem}
                            handleReturnItem={this.handleReturnItem}
-                           id={item._id}
-                           key={item._id}
+                           id={item.item_id}
+                           key={item.item_id}
                            name={item.item_name}
                            description={item.item_description}
                            url={item.url}
