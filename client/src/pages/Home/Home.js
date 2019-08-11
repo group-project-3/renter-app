@@ -18,6 +18,9 @@ class Home extends Component {
        rented_from: new Date()
    }
 
+   callback() {
+       console.log(this.state)
+   }
    componentDidMount() {
        this.findItems();
        console.log("testing");
@@ -48,7 +51,7 @@ class Home extends Component {
 
         this.setState({
             visible: false,
-          });
+          }, this.callback());
     };
 
     handleCancel = e => {
@@ -61,6 +64,10 @@ class Home extends Component {
         const { name, value } = event.target;
         this.setState({[name]: value});
     };
+
+    handleIDChange = item_id => {
+        this.setState({item_id: item_id}, this.callback)
+    }
 
     handleStartDate = (date) => {
         this.setState({rented_to: date})
@@ -88,7 +95,8 @@ class Home extends Component {
                            available={item.available}
                         
                        />
-                       <Button type="primary" onClick={this.showModal}
+                       <Button id="rent_button" type="primary" onClick={this.showModal}
+                            onClick={() => this.handleIDChange(this.item_id)}
                             handleReserve={this.handleReserve}
                             handleCancel={this.handleCancel}
                             >
