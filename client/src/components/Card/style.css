@@ -16,3 +16,16 @@
     border-radius: 0.25rem;
     margin: 0.95rem;  
 }
+.card-img-top {
+    width: 65%;
+    border-top-left-radius: calc(0.25rem - 1px);
+    border-top-right-radius: calc(0.25rem - 1px);
+}
+
+.card-body {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 0.25rem;
+    width: 100%;
+}
