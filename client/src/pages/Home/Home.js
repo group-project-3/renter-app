@@ -87,13 +87,18 @@ class Home extends Component {
                        <Card
                            handleRentItem={this.handleRentItem}
                            handleReturnItem={this.handleReturnItem}
-                           id={item.item_id}
-                           key={item.item_id}
+                           id={item.id}
+                           key={item.id}
                            name={item.item_name}
                            description={item.item_description}
                            url={item.url}
                            price={item.price}
                            available={item.available}
+                           showModal={this.showModal}
+                           handleReserve={this.handleReserve}
+                           handleCancel={this.handleCancel}
+                           rented_to={this.state.rented_to} rented_from={this.state.rented_from} 
+                            handleStartDate={this.handleStartDate} handleEndDate={this.handleEndDate} 
                         
                        />
                        <Button id="rent_button" type="primary" onClick={this.showModal}
