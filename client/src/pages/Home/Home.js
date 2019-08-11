@@ -37,7 +37,20 @@ class Home extends Component {
    }
 
    handleRentItem = (item_id) => {
-        console.log(this.state)
+        let rentObject = {
+            item_id: item_id,
+            rented_from: this.state.rented_from,
+            rented_to: this.state.rented_to,
+            user_id: ""
+        }
+
+        API.rentItem(rentObject)
+        .then(res => {
+            console.log(res)
+        })
+        .catch(err => {
+            console.log(err)
+        })
     };
 
     handleInputChange = event => {
@@ -63,8 +76,8 @@ class Home extends Component {
                        <Card
                            handleRentItem={this.handleRentItem}
                            handleReturnItem={this.handleReturnItem}
-                           id={item.id}
-                           key={item.id}
+                           id={item._id}
+                           key={item._id}
                            name={item.item_name}
                            description={item.item_description}
                            url={item.url}

@@ -4,7 +4,7 @@ import "./style.css";
 
 
 export function Card(props) {
-    console.log(props)
+
     return (
         <div className="card">
             <img src={props.url} className="card-img-top" alt="..."></img>
