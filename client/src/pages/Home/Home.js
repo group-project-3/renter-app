@@ -29,22 +29,18 @@ class Home extends Component {
        })
    }
 
-   handleImageChange = event => {
-    this.setState({image: event.target.files[0]}, this.callback)
-    }
-
-    handleOk = e => {
-        console.log(e);
-        this.setState({
-          visible: false,
-        });
-      };
-    
-    handleCancel = e => {
+   handleOk = e => {
     console.log(e);
     this.setState({
-        visible: false,
+      visible: false,
     });
+  };
+
+    handleCancel = e => {
+        console.log(e);
+            this.setState({
+            visible: false,
+        });
     };
 
    render() {
@@ -63,6 +59,8 @@ class Home extends Component {
                            url={item.url}
                            price={item.price}
                            available={item.available}
+                           handleOk={this.handleOk}
+                           handleCancel={this.handleCancel}
                        />
                        <Modal />
                        </div>
