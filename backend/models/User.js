@@ -8,6 +8,7 @@ const userSchema = new Schema({
     username: { type: String },
     role: { type: String },
     password: { type: String },
+    location: { type: String },
     salt: { type: String },
     session_token: { type: String },
     created: { type: Date, default: Date.now },

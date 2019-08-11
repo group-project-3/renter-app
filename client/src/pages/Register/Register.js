@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid/Grid";
-import { Input, EmailInput, PasswordInput, FormBtn } from "../../components/Form/Form";
+import { Input, EmailInput, PasswordInput, FormBtn, LocationInput } from "../../components/Form/Form";
 import { BrowserRouter as Router, Redirect, Switch } from "react-router-dom";
-import "./style.css"
+import "./style.css";
 
 
 class Register extends Component {
     state = {
+        location: "",
         first_name: "",
         last_name: "",
         email_address: "",
@@ -17,9 +18,13 @@ class Register extends Component {
         redirect: false
     };
 
+    callback = () => {
+        console.log(this.state);
+    }
+
     handleInputChange = event => {
         const { name, value } = event.target;
-        this.setState({ [name]: value });
+        this.setState({ [name]: value }, this.callback);
     };
 
     handleFormSubmit = event => {
@@ -51,15 +56,14 @@ class Register extends Component {
                                     <br></br>
                                     <form>
 
-                                        
-                                        <p>Location</p>
-                                       
-                                        <select value="">
-                                            <option value="place1">place1</option>
-                                            <option value="place2">place2</option>
-                                            <option value="place3">place3</option>
-                                        </select>
-                                        
+
+                                        <LocationInput
+                                            value={this.state.location}
+                                            onChange={this.handleInputChange}
+                                            name="location"
+                                            placeholder="Select location"
+                                        />
+
 
                                         <p>First Name</p>
                                         <Input
