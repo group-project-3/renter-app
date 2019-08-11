@@ -50,6 +50,17 @@ class Register extends Component {
                                     <h1>Register a New Account</h1>
                                     <br></br>
                                     <form>
+
+                                        
+                                        <p>Location</p>
+                                       
+                                        <select value="">
+                                            <option value="place1">place1</option>
+                                            <option value="place2">place2</option>
+                                            <option value="place3">place3</option>
+                                        </select>
+                                        
+
                                         <p>First Name</p>
                                         <Input
                                             value={this.state.first_name}
