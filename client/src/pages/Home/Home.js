@@ -13,7 +13,6 @@ class Home extends Component {
        description: "",
        price: "",
        item_id: "",
-       visable: false,
        rented_to: new Date(),
        rented_from: new Date()
    }
@@ -37,36 +36,23 @@ class Home extends Component {
        })
    }
 
-   showModal = () => {
-    this.setState({
-      visible: !this.state.modal,
-    });
-    };
-
-   handleReserve = e => {
-
-        API.rentItem(this.state.item_id)
-        .then(res => {
-            console.log(res)
-        })
-
-        this.setState({
-            visible: false,
-          }, this.callback());
+   handleReserve = (item_id) => {
+        console.log(this.state)
     };
 
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({[name]: value});
     };
-
+    
     handleStartDate = (date) => {
-        this.setState({rented_to: date})
-    }
+        this.setState({rented_from: date})
+    };
 
     handleEndDate = (date) => {
-        this.setState({rented_from: date})
-    }
+        this.setState({rented_to: date})
+    };
+
 
    render() {
        return (
@@ -84,9 +70,6 @@ class Home extends Component {
                            url={item.url}
                            price={item.price}
                            available={item.available}
-                           showModal={this.showModal}
-                           handleReserve={this.handleReserve}
-                           handleCancel={this.handleCancel}
                            rented_to={this.state.rented_to} rented_from={this.state.rented_from} 
                             handleStartDate={this.handleStartDate} handleEndDate={this.handleEndDate} 
                         
@@ -101,19 +84,6 @@ class Home extends Component {
                        </div>
                    )}
                    </Wrapper>
-                   <Modal
-                        visible={this.state.visible}
-                        onOk={this.handleReserve}
-                        onCancel={this.handleCancel}
-                        handleInputChange={this.handleInputChange}
-                        >
-                        <p>Rent Duration</p>
-                        <br/>
-                        <DatePick rented_to={this.state.rented_to} rented_from={this.state.rented_from} 
-                        handleStartDate={this.handleStartDate} handleEndDate={this.handleEndDate} />
-                        <br/>
-
-                    </Modal>
            </div>
        )
    }
