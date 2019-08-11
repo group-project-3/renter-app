@@ -18,6 +18,10 @@ class Register extends Component {
         redirect: false
     };
 
+    callback = () => {
+        console.log(this.state);
+    }
+
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({ [name]: value });
