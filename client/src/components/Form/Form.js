@@ -6,9 +6,9 @@ export function LocationInput(props) {
   return (
     <div className="input-group mb-3">
       <div className="input-group-prepend">
-        <label className="input-group-text" for="inputGroupSelect01">Choose Location</label>
+        <label className="input-group-text" for="inputGroupSelect01">Location</label>
       </div>
-      <select  className="custom-select" id="inputGroupSelect01" {...props}>
+      <select className="custom-select" id="inputGroupSelect01" {...props}>
         <option selected>Choose...</option>
         <option value="Chicago">Chicago</option>
         <option value="New York">New York</option>
