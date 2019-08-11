@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import Card from "../../components/Card/Card.js";
 import Wrapper from "../../components/Wrapper";
-import Modal from "../../components/Modal/Modal";
-import DatePick from "../../components/DatePick/DatePick"
-import {Button} from 'antd';
 import API from "../../utils/API.js";
 import "./style.css"
 class Home extends Component {
@@ -37,6 +34,7 @@ class Home extends Component {
    }
 
    handleRentItem = (item_id) => {
+       console.log(this.state)
         let rentObject = {
             item_id: item_id,
             rented_from: this.state.rented_from,
@@ -51,6 +49,10 @@ class Home extends Component {
         .catch(err => {
             console.log(err)
         })
+    };
+
+   handleReturnItem = (item_id) => {
+        
     };
 
     handleInputChange = event => {
