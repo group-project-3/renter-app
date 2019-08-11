@@ -5,7 +5,6 @@ import "react-datepicker/dist/react-datepicker.css";
  
 // CSS Modules, react-datepicker-cssmodules.css
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
-import "./style.css"
  
 
 export default function DatePick (props) {
