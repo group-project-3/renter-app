@@ -14,8 +14,8 @@ state = { visible: false };
   render() {
     return (
       <div id="modal">
-        <Modal />
-        <DatePick handleInputChange={this.props.handleInputChange} />
+            <Modal ></Modal>
+            
       </div>
     );
   }

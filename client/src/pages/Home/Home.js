@@ -96,7 +96,7 @@ class Home extends Component {
                         
                        />
                        <Button id="rent_button" type="primary" onClick={this.showModal}
-                            onClick={() => this.handleIDChange(this.item_id)}
+                            
                             handleReserve={this.handleReserve}
                             handleCancel={this.handleCancel}
                             >
