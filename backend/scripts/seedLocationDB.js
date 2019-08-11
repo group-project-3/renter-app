@@ -9,12 +9,14 @@ mongoose.connect(MONGO_URI, { useNewUrlParser: true });
 console.log('Seeding Loations...');
 const locationSeed = [
     {
-        // zip_code: 60406,
-        city_name: "Blue Island"
-    },
-    {
         // zip_code: 60605,
         city_name: "Chicago"
+    },
+    {
+        city_name: "New York"
+    },
+    {
+        city_name: "Los Angeles"
     }
 ];
 
