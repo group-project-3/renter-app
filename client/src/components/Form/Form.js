@@ -2,6 +2,22 @@ import React from "react";
 
 // This file exports the Input, TextArea, and FormBtn components
 
+export function LocationInput(props) {
+  return (
+    <div className="input-group mb-3">
+      <div className="input-group-prepend">
+        <label className="input-group-text" for="inputGroupSelect01">Choose Location</label>
+      </div>
+      <select className="custom-select" id="inputGroupSelect01">
+        <option selected>Choose...</option>
+        <option value="Chicago">Chicago</option>
+        <option value="New York">New York</option>
+        <option value="Los Angeles">Los Angeles</option>
+      </select>
+    </div>
+  )
+}
+
 export function Input(props) {
   return (
     <div className="form-group">
@@ -28,7 +44,7 @@ export function EmailInput(props) {
   );
 }
 
-export function FileInput (props) {
+export function FileInput(props) {
   return (
     <form>
       <div class="form-group">
