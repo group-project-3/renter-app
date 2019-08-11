@@ -36,7 +36,7 @@ class Home extends Component {
        })
    }
 
-   handleReserve = (item_id) => {
+   handleRentItem = (item_id) => {
         console.log(this.state)
     };
 
@@ -74,13 +74,6 @@ class Home extends Component {
                             handleStartDate={this.handleStartDate} handleEndDate={this.handleEndDate} 
                         
                        />
-                       <Button id="rent_button" type="primary" onClick={this.showModal}
-                            
-                            handleReserve={this.handleReserve}
-                            handleCancel={this.handleCancel}
-                            >
-                            Rent
-                             </Button>
                        </div>
                    )}
                    </Wrapper>

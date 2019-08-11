@@ -4,6 +4,7 @@ import "./style.css";
 
 
 export function Card(props) {
+    console.log(props)
     return (
         <div className="card">
             <img src={props.url} className="card-img-top" alt="..."></img>
@@ -15,11 +16,11 @@ export function Card(props) {
                     <DatePick {...props}/>
                     {props.available ?
                     <button className="btn btn-sm  btn-primary"
-                        onClick={() => { props.handleRentItem((props.id)) }}>Rent
+                        onClick={() => { props.handleRentItem(props.id) }}>Rent
                     </button>
                     :
                     <button className="btn btn-sm btn-primary"
-                        onClick={() => { props.handleReturnItem((props.id)) }}>Return
+                        onClick={() => { props.handleReturnItem(props.id) }}>Return
                     </button>
                 }
                 </div>
