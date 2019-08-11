@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ReactDOM from "react-dom"
 import { Col, Row, Container } from "../../components/Grid/Grid";
 import { Input, EmailInput, PasswordInput, PriceInput, TextArea, FileInput, FormBtn } from "../../components/Form/Form"
 import UploadImage from "../../components/UploadImage/UploadImage";
@@ -11,13 +12,13 @@ class PostItem extends Component {
         url: "",
         item_description: "",
         price: "",
-        image: null
+        image: null,
     };
 
     callback = () => {
         console.log(this.state);
     }
-
+    
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({[name]: value}, this.callback);
@@ -91,11 +92,14 @@ class PostItem extends Component {
                             <FormBtn onClick={this.handleFormSubmit} onClick={this.handleImageUpload}>
                                 Submit
                             </FormBtn>
+
+                            
                         </form>
                     </Col>
                     <Col size="md-3"></Col>
                 </Row>
             </Container>
+
         </div>
         );
     };
