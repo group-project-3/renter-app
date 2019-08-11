@@ -7,8 +7,8 @@ import Register from "./pages/Register/Register";
 import LogIn from "./pages/LogIn/LogIn"
 import PostItem from './pages/PostItem/PostItem';
 import RentItem from './pages/RentItem/RentItem';
-import Modal from "./components/Modal/Modal"
 import AccountSettings from './pages/AccountSettings/AccountSettings';
+import DatePick from './components/DatePick/DatePick';
 
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
 
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/Modal" component={Modal} />
+        <Route exact path="/datepick" component={DatePick} />
         <Route exact path="/PostItem" component={PostItem} />
         <Route exact path="/RentItem" component={RentItem} />
         <Route exact path="/LogIn" component={LogIn} />
