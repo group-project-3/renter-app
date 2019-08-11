@@ -10,7 +10,6 @@ export function Card(props) {
                     <h5 className="card-title">{props.name}</h5>
                     <p className="card-text">{props.description}</p>
                     <p className="">{props.price}</p>
-                    <a href="#" className="btn btn-primary" onClick={props.showModal}>Rent Clubs</a>
                 </div>
         </div>
 

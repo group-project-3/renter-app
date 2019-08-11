@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import Card from "../../components/Card/Card.js";
 import Wrapper from "../../components/Wrapper";
 import Modal from "../../components/Modal/Modal";
+import {Button} from 'antd';
 // import { Container, Row, Col } from "../../components/Grid/Grid.js";
 import API from "../../utils/API.js";
+import "./style.css"
 class Home extends Component {
    state = {
        items: [],
@@ -29,6 +31,12 @@ class Home extends Component {
        })
    }
 
+   showModal = () => {
+    this.setState({
+      visible: !this.state.modal,
+    });
+    };
+
    handleOk = e => {
     console.log(e);
     this.setState({
@@ -48,7 +56,7 @@ class Home extends Component {
            <div>
                 <Wrapper>
                    {this.state.items.map(item =>
-                    <div>
+                    <div className="card_holder">
                        <Card
                            handleRentItem={this.handleRentItem}
                            handleReturnItem={this.handleReturnItem}
@@ -59,13 +67,25 @@ class Home extends Component {
                            url={item.url}
                            price={item.price}
                            available={item.available}
-                           handleOk={this.handleOk}
-                           handleCancel={this.handleCancel}
+                        
                        />
-                       <Modal />
+                       <Button class="rent_button" type="primary" onClick={this.showModal}
+                            handleOk={this.handleOk}
+                            handleCancel={this.handleCancel}
+                            >
+                            Rent
+                             </Button>
                        </div>
                    )}
                    </Wrapper>
+                   <Modal
+                        title="Basic Modal"
+                        visible={this.state.visible}
+                        onOk={this.handleOk}
+                        onCancel={this.handleCancel}
+                        >
+                        <p>Rent Duration</p>
+                    </Modal>
            </div>
        )
    }
