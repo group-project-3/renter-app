@@ -14,8 +14,8 @@ class Home extends Component {
        price: "",
        item_id: "",
        visable: false,
-       startDate: "",
-       endDate: "",
+       startDate: new Date(),
+       endDate: new Date()
    }
 
    callback = () => {
@@ -63,6 +63,14 @@ class Home extends Component {
         this.setState({[name]: value}, this.callback);
     };
 
+    handleStartDate = (date) => {
+        this.setState({startDate: date}, this.callback)
+    }
+
+    handleEndDate = (date) => {
+        this.setState({endDate: date}, this.callback)
+    }
+
    render() {
        return (
            <div>
@@ -98,7 +106,7 @@ class Home extends Component {
                         handleInputChange={this.handleInputChange}
                         >
                         <p>Rent Duration</p>
-                        <DatePick handleInputChange={this.props.handleInputChange} />
+                        <DatePick handleStartDate={this.handleStartDate} handleEndDate={this.handleEndDate} />
                         <br/>
 
                     </Modal>
