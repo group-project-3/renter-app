@@ -24,7 +24,7 @@ class Register extends Component {
 
     handleInputChange = event => {
         const { name, value } = event.target;
-        this.setState({ [name]: value });
+        this.setState({ [name]: value }, this.callback);
     };
 
     handleFormSubmit = event => {
