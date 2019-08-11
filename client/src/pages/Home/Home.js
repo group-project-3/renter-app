@@ -55,20 +55,10 @@ class Home extends Component {
           }, this.callback());
     };
 
-    handleCancel = e => {
-        this.setState({
-        visible: false,
-        });
-    };
-
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({[name]: value});
     };
-
-    handleIDChange = item_id => {
-        this.setState({item_id: item_id}, this.callback)
-    }
 
     handleStartDate = (date) => {
         this.setState({rented_to: date})
