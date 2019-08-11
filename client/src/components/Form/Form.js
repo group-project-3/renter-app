@@ -8,7 +8,7 @@ export function LocationInput(props) {
       <div className="input-group-prepend">
         <label className="input-group-text" for="inputGroupSelect01">Choose Location</label>
       </div>
-      <select className="custom-select" id="inputGroupSelect01">
+      <select  className="custom-select" id="inputGroupSelect01" {...props}>
         <option selected>Choose...</option>
         <option value="Chicago">Chicago</option>
         <option value="New York">New York</option>
