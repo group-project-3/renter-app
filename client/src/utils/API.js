@@ -2,14 +2,14 @@ import axios from "axios";
 
 export default {
   // User
-  getAuthenticatedUser: function () {
-    return axios.get("/api/users");
+  getAuthenticatedUser: function (session_token) {
+    return axios.get("/api/users/" + session_token);
   },
   login: function (formData) {
     return axios.post("/api/users/login", formData);
   },
-  logout: function () {
-    return axios.post("/api/users/logout");
+  logout: function (session_token) {
+    return axios.post("/api/users/logout", session_token);
   },
   create: function (newUser) {
     return axios.post("/api/users/create", newUser);
