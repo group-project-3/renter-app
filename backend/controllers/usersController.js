@@ -13,8 +13,11 @@ mongoose.connect(MONGO_URI, { useNewUrlParser: true });
 // Defining methods for the usersController
 module.exports = {
     getAuthenticatedUser: (request, response) => {
-        // response.json(request.user);
-        response.json("return authenticated user")
+        db.User.findOne({ session_token: request.params.session_token })
+            .then(userObject => {
+                response.json(userObject)
+            })
+            .catch(err => response.status(422).json(err))
     },
     login: (request, response) => {
         db.User.findOne({ username: request.body.username })
@@ -38,25 +41,18 @@ module.exports = {
             .catch(err => response.status(422).json(err))
     },
     logout: (request, response) => {
-        db.User.findOne({ username: request.body.username })
-            .then(dbModel => {
-                let uuid = uuidv1()
-                console.log(uuid)
-                db.User.updateOne({ "username": request.body.username }, { $set: { "session_token": "" } },
-                    function (error, edited) {
-                        if (error) {
-                            console.log(error);
-                            response.send(error);
-                        }
-                        else {
-                            console.log("user logged out");
-                            response.send(edited);
-                        }
-                    })
+        console.log(request.body)
+        db.User.findOneAndUpdate(
+            { "session_token": request.body.session_token },
+            { "session_token": "" },
+            { new: true, runValidators: true })
+            .then(userObject => {
+                console.log(userObject)
+                response.status(200).json('user logged out successfully')
             })
             .catch(err => {
-                response.json(err);
-            });
+                response.status(422).json(err)
+            })
     },
     create: (request, response) => {
         if (!request.body.email_address.includes("@") || !request.body.email_address.includes(".")) {
@@ -77,7 +73,6 @@ module.exports = {
                 salt: hashedPassword.salt,
                 session_token: ""
             };
-            console.log(userRequest)
             db.User
                 .create(userRequest)
                 .then(dbModel => response.json(dbModel))
@@ -87,16 +82,4 @@ module.exports = {
             gmail.sendWelcomeEmail(userRequest)
         }
     }
-
 }
-// createUserObject = (request) => {
-//     return userRequest = {
-//         first_name: request.body.first_name,
-//         last_name: request.body.last_name,
-//         email_address: request.body.email_address,
-//         username: request.body.username,
-//         password: hashedPassword.hash,
-//         salt: hashedPassword.salt,
-//         session_token: ""
-//     };
-// }
