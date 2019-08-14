@@ -24,6 +24,8 @@ export function Card(props) {
         API.rentItem(rentObject)
         .then(res => {
             console.log(res)
+            setAvailable(available = false)
+            console.log("available val", {available})
         })
         .catch(err => {
             console.log(err)

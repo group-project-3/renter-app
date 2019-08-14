@@ -68,8 +68,8 @@ class Home extends Component {
                    {this.state.items.map(item =>
                     <div className="card_holder">
                        <Card
-                           handleRentItem={this.handleRentItem}
-                           handleReturnItem={this.handleReturnItem}
+                        //    handleRentItem={this.handleRentItem}
+                        //    handleReturnItem={this.handleReturnItem}
                            id={item._id}
                            key={item._id}
                            name={item.item_name}
