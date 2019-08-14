@@ -4,7 +4,7 @@ import { Col, Row, Container } from "../../components/Grid/Grid";
 import { Input, EmailInput, PasswordInput, FormBtn, LocationInput } from "../../components/Form/Form";
 import { BrowserRouter as Router, Redirect, Switch } from "react-router-dom";
 import "./style.css";
-
+import { UserConsumer } from "../../UserContext";
 
 class Register extends Component {
     state = {
@@ -42,12 +42,18 @@ class Register extends Component {
 
     render() {
         if (this.state.redirect === true) {
-            return <Redirect to='/' />
+            return (
+                <UserConsumer>
+                    {props => {
+                        return <Redirect to='/' />
+                    }}
+                </UserConsumer>
+            )
         }
         return (
-            <Router>
-                <Switch>
-                    <div>
+            <UserConsumer>
+                {props => {
+                    return <div>
                         <Container fluid>
                             <Row>
                                 <Col size="md-3"></Col>
@@ -120,8 +126,8 @@ class Register extends Component {
                             </Row>
                         </Container>
                     </div>
-                </Switch>
-            </Router>
+                }}
+            </UserConsumer>
         );
     };
 
