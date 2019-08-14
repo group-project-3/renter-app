@@ -1,0 +1,14 @@
+.container-fluid {
+background: url('https://worldwide.golf/wp-content/themes/worldwidegolfv2/timthumb.php?src=https://worldwide.golf/wp-content/uploads/2019/03/AP-Black-main.jpg&w=960&zc=0q=90') repeat center center fixed;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+/* height: 100vh;
+width: 100vw; */
+height: 100;
+width: 100;
+/* margin-left: -8px;
+margin-bottom: 2px; */
+margin: 0px 0px 2px 0px
+}
