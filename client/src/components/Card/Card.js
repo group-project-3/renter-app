@@ -33,7 +33,15 @@ export function Card(props) {
     };
 
     const handleReturnItem = (item_id) => {
-        console.log("return", item_id)
+        API.returnItem(item_id)
+        .then(res => {
+            console.log(res)
+            setAvailable(available = true)
+            console.log("available val", {available})
+        })
+        .catch(err => {
+            console.log(err)
+        })
     };
 
     const handleInputChange = event => {
