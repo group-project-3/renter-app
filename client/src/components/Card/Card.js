@@ -11,7 +11,7 @@ export function Card(props) {
     const [description, setDescription] = useState(props.description);
     const [available, setAvailable] = useState(props.available);
     const [rented_from, setrented_from] = useState(null);
-    const [rented_to, setRented_to] = useState(null);
+    const [rented_to, setrented_to] = useState(null);
 
     const handleRentItem = (item_id) => {
         let rentObject = {
@@ -35,6 +35,12 @@ export function Card(props) {
     const handleReturnItem = (item_id) => {
         console.log("return", item_id)
     };
+
+    const handleInputChange = event => {
+        const { name, value } = event.target;
+        this.setState({[name]: value});
+    };
+
     return (
         <div className="card">
             <img src={props.url} className="card-img-top" alt="..."></img>
@@ -43,7 +49,8 @@ export function Card(props) {
                     <p className="">{description}</p>
                     <p className="">{price}</p>
                     <p>Rent Duration</p>
-                    <DatePick {...props}/>
+                    <DatePick setrented_from={setrented_from} setrented_to={setrented_to}
+                    rented_to={rented_to} rented_from={rented_from}/>
                     {available ?
                     <button className="btn btn-sm  btn-primary"
                         onClick={() => {handleRentItem(item_id) }}>Rent

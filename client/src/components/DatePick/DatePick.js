@@ -8,13 +8,14 @@ import 'react-datepicker/dist/react-datepicker-cssmodules.css';
  
 
 export default function DatePick (props) {
+  console.log(props)
 
   return (      
     <div className="DatePick">
       <DatePicker
-        selected={props.rented_from}
-        onChange={props.handleStartDate}
-        value={props.date}
+        // onChange={(event) => props.setrented_from(event)}
+        onChange={(event) => console.log(event)}
+        selected={props.rented_From}
       />
        <DatePicker
          selected={props.rented_to}
