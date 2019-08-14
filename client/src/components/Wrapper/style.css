@@ -1,11 +1,20 @@
-.wrapper {
+ .wrapper {
   padding-top: 50px;
-  background: #ECEFF1;
   height: 50%;
+  /* background: #ECEFF1; */
+  /* background: url('http://i65.tinypic.com/1213l9y.jpg') no-repeat center center fixed; */
+  /* background: url('https://worldwide.golf/wp-content/themes/worldwidegolfv2/timthumb.php?src=https://worldwide.golf/wp-content/uploads/2019/03/AP-Black-main.jpg&w=960&zc=0q=90') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;  
   display: flex;
   flex-flow: row wrap;
   padding: 20px;
   justify-content: space-around;
   align-content: flex-start;
-  overflow: auto;
-}
+  overflow: auto; */
+} 
+
