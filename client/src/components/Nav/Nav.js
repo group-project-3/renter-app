@@ -5,12 +5,12 @@ import UserProfile from "../../utils/UserProfile"
 import "./style.css";
 
 class Nav extends Component {
+
     handleLogOut = () => {
         let session_token = localStorage.getItem("x-session-token")
         if (session_token) {
             API.logout({ session_token })
                 .then(logoutResult => {
-                    // console.log(logoutResult)
                     localStorage.removeItem("x-session-token")
                 })
         } else {
@@ -44,13 +44,10 @@ class Nav extends Component {
                                 <a className="nav-link" href="/LogIn">Log In<span className="sr-only"></span></a>
                             </li>
                             <li className="nav-link">
-                                <a className="nav-link" href="#" onClick={this.handleLogOut}>Log Out<span className="sr-only"></span></a>
+                                <a className="nav-link" href="/" onClick={this.handleLogOut}>Log Out<span className="sr-only"></span></a>
                             </li>
                             <li className="nav-link">
                                 <a className="nav-link" href="/Register">Register<span className="sr-only"></span></a>
-                            </li>
-                            <li className="nav-link">
-                                <a className="nav-link" href="/AccountSettings">Account Settings<span className="sr-only"></span></a>
                             </li>
                         </ul>
                     </div>

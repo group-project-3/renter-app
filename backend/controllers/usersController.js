@@ -41,13 +41,11 @@ module.exports = {
             .catch(err => response.status(422).json(err))
     },
     logout: (request, response) => {
-        console.log(request.body)
         db.User.findOneAndUpdate(
             { "session_token": request.body.session_token },
             { "session_token": "" },
             { new: true, runValidators: true })
             .then(userObject => {
-                console.log(userObject)
                 response.status(200).json('user logged out successfully')
             })
             .catch(err => {
@@ -59,9 +57,10 @@ module.exports = {
             response.status(400).json({ 'error': 'email is not valid' });
         } else if (request.body.password !== request.body.password_confirm) {
             response.status(400).json({ 'error': 'passwords do not match' });
+        } else if (response === 422) {
+            console.log('error:not unique user');
         } else {
             let hashedPassword = hashpass(request.body.password);
-            // let userRequest = createUserObject(request)
 
             let userRequest = {
                 first_name: request.body.first_name,
@@ -78,7 +77,6 @@ module.exports = {
                 .then(dbModel => response.json(dbModel))
                 .catch(err => response.status(422).json(err));
             console.log("user created")
-            // let userRequest = createUserObject(request)
             gmail.sendWelcomeEmail(userRequest)
         }
     }
