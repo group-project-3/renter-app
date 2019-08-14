@@ -15,6 +15,12 @@ module.exports = {
     getAuthenticatedUser: (request, response) => {
         db.User.findOne({ session_token: request.params.session_token })
             .then(userObject => {
+                userObject.password = undefined
+                userObject.salt = undefined
+                userObject.session_token = undefined
+                userObject.created = undefined
+                userObject.updated = undefined
+                userObject.__v = undefined
                 response.json(userObject)
             })
             .catch(err => response.status(422).json(err))
