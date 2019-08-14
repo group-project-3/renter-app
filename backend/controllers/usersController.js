@@ -7,8 +7,8 @@ const db = require("../models");
 const gmail = require("./emailController")
 const location = require("./locationsController")
 
-const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost/renter-app";
-mongoose.connect(MONGO_URI, { useNewUrlParser: true });
+// const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost/renter-app";
+// mongoose.connect(MONGO_URI, { useNewUrlParser: true });
 
 // Defining methods for the usersController
 module.exports = {
