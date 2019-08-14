@@ -14,13 +14,11 @@ export default function DatePick (props) {
     <div className="DatePick">
       <DatePicker
         onChange={(event) => props.setrented_from(event)}
-        // onChange={(event) => console.log(event)}
         selected={props.rented_from}
       />
        <DatePicker
-         selected={props.rented_to}
-         onChange={props.handleEndDate}
-         value={props.date}
+        onChange={(event) => props.setrented_to(event)}
+        selected={props.rented_to}
          />
      </div>
     )
