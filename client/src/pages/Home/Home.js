@@ -29,12 +29,10 @@ class Home extends Component {
                stateItems.push(items.data[i]);
            }
            this.setState(stateItems);
-           console.log('state: ', this.state.items)
        })
    }
 
    handleRentItem = (item_id) => {
-       console.log(this.state)
         let rentObject = {
             item_id: item_id,
             rented_from: this.state.rented_from,

@@ -2,7 +2,7 @@ const router = require("express").Router();
 const usersController = require("../../controllers/usersController");
 
 router
-    .route("/")
+    .route("/:session_token")
     .get(usersController.getAuthenticatedUser)
 
 router
