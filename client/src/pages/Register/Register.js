@@ -57,14 +57,6 @@ class Register extends Component {
                                     <form>
 
 
-                                        <LocationInput
-                                            value={this.state.location}
-                                            onChange={this.handleInputChange}
-                                            name="location"
-                                            placeholder="Select location"
-                                        />
-
-
                                         <p>First Name</p>
                                         <Input
                                             value={this.state.first_name}
@@ -111,6 +103,13 @@ class Register extends Component {
                                             onChange={this.handleInputChange}
                                             name="password_confirm"
                                             placeholder="Please Confirm Your Password"
+                                        />
+
+                                        <LocationInput
+                                            value={this.state.location}
+                                            onChange={this.handleInputChange}
+                                            name="location"
+                                            placeholder="Select location"
                                         />
                                         <FormBtn onClick={this.handleFormSubmit}>
                                             Register
