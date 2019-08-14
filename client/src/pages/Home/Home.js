@@ -5,13 +5,7 @@ import API from "../../utils/API.js";
 import "./style.css"
 class Home extends Component {
    state = {
-       items: [],
-       item: "",
-       description: "",
-       price: "",
-       item_id: "",
-       rented_to: new Date(),
-       rented_from: new Date()
+       items: []
    }
 
    callback() {
@@ -32,39 +26,39 @@ class Home extends Component {
        })
    }
 
-   handleRentItem = (item_id) => {
-        let rentObject = {
-            item_id: item_id,
-            rented_from: this.state.rented_from,
-            rented_to: this.state.rented_to,
-            user_id: ""
-        }
+//    handleRentItem = (item_id) => {
+//         let rentObject = {
+//             item_id: item_id,
+//             rented_from: this.state.rented_from,
+//             rented_to: this.state.rented_to,
+//             user_id: ""
+//         }
 
-        API.rentItem(rentObject)
-        .then(res => {
-            console.log(res)
-        })
-        .catch(err => {
-            console.log(err)
-        })
-    };
+//         API.rentItem(rentObject)
+//         .then(res => {
+//             console.log(res)
+//         })
+//         .catch(err => {
+//             console.log(err)
+//         })
+//     };
 
-   handleReturnItem = (item_id) => {
+//    handleReturnItem = (item_id) => {
         
-    };
+//     };
 
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({[name]: value});
     };
     
-    handleStartDate = (date) => {
-        this.setState({rented_from: date})
-    };
+    // handleStartDate = (date) => {
+    //     this.setState({rented_from: date})
+    // };
 
-    handleEndDate = (date) => {
-        this.setState({rented_to: date})
-    };
+    // handleEndDate = (date) => {
+    //     this.setState({rented_to: date})
+    // };
 
 
    render() {
