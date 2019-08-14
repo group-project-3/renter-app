@@ -7,8 +7,10 @@
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    min-width: 100px;
-    max-width: 300px;
+    /* min-width: 100px;
+    max-width: 300px; */
+    width: 225px;
+    height: 450px;
     word-wrap: break-word;
     background-color: #fff;
     background-clip: border-box;
