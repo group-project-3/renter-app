@@ -8,13 +8,11 @@ class Home extends Component {
        items: []
    }
 
-   callback() {
-       console.log(this.state)
-   }
    componentDidMount() {
        this.findItems();
        console.log("testing");
    }
+   
    findItems = () => {
        API.findAllItems().then(items => {
            // let stateItems = this.state.items;
@@ -26,41 +24,6 @@ class Home extends Component {
        })
    }
 
-//    handleRentItem = (item_id) => {
-//         let rentObject = {
-//             item_id: item_id,
-//             rented_from: this.state.rented_from,
-//             rented_to: this.state.rented_to,
-//             user_id: ""
-//         }
-
-//         API.rentItem(rentObject)
-//         .then(res => {
-//             console.log(res)
-//         })
-//         .catch(err => {
-//             console.log(err)
-//         })
-//     };
-
-//    handleReturnItem = (item_id) => {
-        
-//     };
-
-    handleInputChange = event => {
-        const { name, value } = event.target;
-        this.setState({[name]: value});
-    };
-    
-    // handleStartDate = (date) => {
-    //     this.setState({rented_from: date})
-    // };
-
-    // handleEndDate = (date) => {
-    //     this.setState({rented_to: date})
-    // };
-
-
    render() {
        return (
            <div>
@@ -68,8 +31,6 @@ class Home extends Component {
                    {this.state.items.map(item =>
                     <div className="card_holder">
                        <Card
-                        //    handleRentItem={this.handleRentItem}
-                        //    handleReturnItem={this.handleReturnItem}
                            id={item._id}
                            key={item._id}
                            name={item.item_name}
@@ -77,9 +38,6 @@ class Home extends Component {
                            url={item.url}
                            price={item.price}
                            available={item.available}
-                           rented_to={this.state.rented_to} rented_from={this.state.rented_from} 
-                            handleStartDate={this.handleStartDate} handleEndDate={this.handleEndDate} 
-                        
                        />
                        </div>
                    )}

@@ -9,7 +9,7 @@ export function Card(props) {
     const [item_id, setID] = useState(props.id);
     const [price, setPrice] = useState(props.price);
     const [description, setDescription] = useState(props.description);
-    const [available, setAvailable] = useState(props.available);
+    let [available, setAvailable] = useState(props.available);
     const [rented_from, setrented_from] = useState(null);
     const [rented_to, setrented_to] = useState(null);
 
@@ -33,6 +33,7 @@ export function Card(props) {
     };
 
     const handleReturnItem = (item_id) => {
+
         API.returnItem(item_id)
         .then(res => {
             console.log(res)
@@ -42,11 +43,6 @@ export function Card(props) {
         .catch(err => {
             console.log(err)
         })
-    };
-
-    const handleInputChange = event => {
-        const { name, value } = event.target;
-        this.setState({[name]: value});
     };
 
     return (
