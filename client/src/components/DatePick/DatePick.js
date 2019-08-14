@@ -13,9 +13,9 @@ export default function DatePick (props) {
   return (      
     <div className="DatePick">
       <DatePicker
-        // onChange={(event) => props.setrented_from(event)}
-        onChange={(event) => console.log(event)}
-        selected={props.rented_From}
+        onChange={(event) => props.setrented_from(event)}
+        // onChange={(event) => console.log(event)}
+        selected={props.rented_from}
       />
        <DatePicker
          selected={props.rented_to}
