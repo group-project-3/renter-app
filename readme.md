@@ -40,7 +40,13 @@ Product Name Screen Shot
 ### Built With
 The following tools/frameworks are use in this project.
 * [Node](https://nodejs.org/en/)
-* [mysql](https://www.mysql.com/)
+* [Mongodb](https://www.mongodb.com/)
+* [Mongoose](https://mongoosejs.com/)
+* [React JS](https://reactjs.org/)
+* [Express JS](https://expressjs.com/)
+* [Axios JS](https://www.npmjs.com/package/axios)
+* [Googleapis](https://www.npmjs.com/package/googleapis)
+* [nodemailer](https://nodemailer.com/)
 
 
 
@@ -67,9 +73,9 @@ git clone https://github.com/<user>/<repo>
 ```sh
 npm install
 ```
-3. Creata mysql table using
-```JS
-schema.sql
+3. Creata mongo collection using
+```
+https://www.mongodb.com/
 ```
 
 
