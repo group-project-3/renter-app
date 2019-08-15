@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import DatePick from "../DatePick/DatePick"
 import API from "../../utils/API"
 import "./style.css";
@@ -13,18 +13,21 @@ export function Card(props) {
     const [rented_from, setrented_from] = useState(null);
     const [rented_to, setrented_to] = useState(null);
 
+    useEffect((props) => {
+        // props.findItems();
+    })
+
     const handleRentItem = (item_id) => {
         let rentObject = {
             item_id: item_id,
-            rented_from: {rented_from},
-            rented_to: {rented_to},
+            // rented_from: {rented_from},
+            // rented_to: {rented_to},
             user_id: ""
         }
 
         API.rentItem(rentObject)
         .then(res => {
             console.log(res)
-            setAvailable(available = false)
             console.log("available val", {available})
         })
         .catch(err => {
@@ -37,7 +40,6 @@ export function Card(props) {
         API.returnItem(item_id)
         .then(res => {
             console.log(res)
-            setAvailable(available = true)
             console.log("available val", {available})
         })
         .catch(err => {

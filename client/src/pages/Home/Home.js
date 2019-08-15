@@ -12,7 +12,7 @@ class Home extends Component {
        this.findItems();
        console.log("testing");
    }
-   
+
    findItems = () => {
        API.findAllItems().then(items => {
            // let stateItems = this.state.items;
@@ -31,6 +31,7 @@ class Home extends Component {
                    {this.state.items.map(item =>
                     <div className="card_holder">
                        <Card
+                            findItems={this.findItems}
                            id={item._id}
                            key={item._id}
                            name={item.item_name}
