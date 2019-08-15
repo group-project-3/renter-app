@@ -3,6 +3,8 @@ import { Col, Row, Container } from "../../components/Grid/Grid";
 import { Input, PasswordInput, FormBtn } from "../../components/Form/Form"
 import { BrowserRouter as Router, Redirect, Switch } from "react-router-dom";
 import API from "../../utils/API";
+import { UserConsumer } from "../../UserContext";
+
 import "./style.css";
 
 class LogIn extends Component {
@@ -38,17 +40,23 @@ class LogIn extends Component {
 
     render() {
         if (this.state.redirect === true) {
-            return <Redirect to='/' />
+            return (
+                <UserConsumer>
+                    {props => {
+                        return <Redirect to='/' />
+                    }}
+                </UserConsumer>
+            )
         }
         return (
-            <Router>
-                <Switch>
-                    <div>
+            <UserConsumer>
+                {props => {
+                    return <div>
                         <Container fluid>
                             <Row>
                                 <Col size="md-3"></Col>
                                 <Col size="md-6">
-                                    <h1>Log-In</h1>
+                                    <h1>Sign in</h1>
                                     <br></br>
                                     <form>
                                         <p>Username</p>
@@ -58,7 +66,6 @@ class LogIn extends Component {
                                             name="username"
                                             placeholder="Enter Your Username"
                                         />
-
                                         <p>Password</p>
                                         <PasswordInput
                                             value={this.state.password}
@@ -67,23 +74,17 @@ class LogIn extends Component {
                                             placeholder="Enter Your Password"
                                         />
                                         <FormBtn onClick={this.handleFormSubmit} >
-                                            Log In
+                                            Sign in
                                         </FormBtn>
-
                                     </form>
                                 </Col>
                                 <Col size="md-3"></Col>
                             </Row>
                         </Container>
                     </div>
-                </Switch>
-            </Router>
+                }}
+            </UserConsumer>
         );
     }
-
 }
-
-
-
-
 export default LogIn;

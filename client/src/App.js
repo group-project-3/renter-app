@@ -34,6 +34,7 @@ class App extends Component {
       <Router>
         <UserProvider value={this.state.user}>
           <Nav />
+          <Jumbotron />
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/datepick" component={DatePick} />

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Card from "../../components/Card/Card.js";
 import Wrapper from "../../components/Wrapper";
 import API from "../../utils/API.js";
+import { UserConsumer } from "../../UserContext";
+
 import "./style.css"
 class Home extends Component {
    state = {
