@@ -20,8 +20,8 @@ export function Card(props) {
     const handleRentItem = (item_id) => {
         let rentObject = {
             item_id: item_id,
-            // rented_from: {rented_from},
-            // rented_to: {rented_to},
+            rented_from: {rented_from},
+            rented_to: {rented_to},
             user_id: ""
         }
 
