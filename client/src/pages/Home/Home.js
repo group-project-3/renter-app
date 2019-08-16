@@ -3,6 +3,7 @@ import Card from "../../components/Card/Card.js";
 import Wrapper from "../../components/Wrapper";
 import API from "../../utils/API.js";
 import { UserConsumer } from "../../UserContext";
+import { SearchBar } from "../../components/SearchBar/SearchBar"
 
 import "./style.css"
 class Home extends Component {
@@ -73,6 +74,7 @@ class Home extends Component {
             <UserConsumer>
                 {props => {
                     return <div>
+                        <SearchBar />
                         <Wrapper>
                             {this.state.items.map(item =>
                                 <div className="card_holder">
