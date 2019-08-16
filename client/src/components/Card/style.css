@@ -19,7 +19,7 @@
     margin: 0.95rem;  
 }
 .card-img-top {
-    width: 65%;
+    width: 40%;
     border-top-left-radius: calc(0.25rem - 1px);
     border-top-right-radius: calc(0.25rem - 1px);
 }
@@ -30,4 +30,7 @@
     flex: 1 1 auto;
     padding: 0.25rem;
     width: 100%;
+}
+p.line{
+    line-height: normal;
 }

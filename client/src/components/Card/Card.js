@@ -14,7 +14,7 @@ export function Card(props) {
             <Col size="md-6" className="itemInfo" style={{"float" : "right"}}>
                 <div className="card-body">
                     <h5 className="card-title">{props.name}</h5>
-                    <p className="">{props.description}</p>
+                    <p className="line">{props.description}</p>
                     <p className="">{props.price}</p>
                     <p>Rent Duration:</p>
                     <DatePick {...props} />
