@@ -4,8 +4,10 @@ import { Col, Row, Container } from "../../components/Grid/Grid";
 import { Input, EmailInput, PasswordInput, PriceInput, TextArea, FileInput, FormBtn } from "../../components/Form/Form"
 import UploadImage from "../../components/UploadImage/UploadImage";
 import { UserConsumer } from "../../UserContext";
-
 import API from "../../utils/API";
+const sharp = require('sharp');
+const uuid = require('uuid');
+
 
 
 class PostItem extends Component {
@@ -40,7 +42,19 @@ class PostItem extends Component {
     }
 
     handleImageChange = event => {
-        this.setState({ image: event.target.files[0] }, this.callback)
+
+        let inputFile  = event.target.files[0];
+        let outputFile = uuid + ".jpg";
+
+        sharp(inputFile).resize({ height: 200, width: 200 }).toFile(outputFile)
+        .then(function(newFileInfo) {
+            console.log("Success");
+        })
+        .catch(function(err) {
+            console.log("Error occured");
+        });
+
+        this.setState({ image: outputFile }, this.callback)
     }
 
     handleImageUpload = event => {
