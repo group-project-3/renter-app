@@ -1,30 +1,35 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import DatePick from "../DatePick/DatePick"
 import API from "../../utils/API"
+import { UserConsumer } from "../../UserContext";
+import UserProfile from "../../utils/UserProfile"
 import "./style.css";
 
 
-export function Card(props) {
+export function Card    (props) {
     const [name, setName] = useState(props.name)
     const [item_id, setID] = useState(props.id);
     const [price, setPrice] = useState(props.price);
     const [description, setDescription] = useState(props.description);
-    let [available, setAvailable] = useState(props.available);
+    const [available, setAvailable] = useState(props.available);
     const [rented_from, setrented_from] = useState(null);
     const [rented_to, setrented_to] = useState(null);
+    const user = useContext(UserConsumer)
+    console.log(user, "user")
 
     useEffect((props) => {
-        // props.findItems();
+        console.log("props", props)
     })
 
     const handleRentItem = (item_id) => {
         let rentObject = {
             item_id: item_id,
-            rented_from: {rented_from},
-            rented_to: {rented_to},
-            user_id: ""
+            rented_from: rented_from,
+            rented_to: rented_to,
+            user_id: user._id
         }
 
+        console.log(rentObject)
         API.rentItem(rentObject)
         .then(res => {
             console.log(res)
@@ -48,6 +53,7 @@ export function Card(props) {
     };
 
     return (
+
         <div className="card">
             <img src={props.url} className="card-img-top" alt="..."></img>
                 <div className="card-body">

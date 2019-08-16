@@ -28,10 +28,12 @@ class Home extends Component {
 
    render() {
        return (
+
            <div>
                 <Wrapper>
                    {this.state.items.map(item =>
                     <div className="card_holder">
+                        
                        <Card
                             findItems={this.findItems}
                            id={item._id}
@@ -42,10 +44,12 @@ class Home extends Component {
                            price={item.price}
                            available={item.available}
                        />
+                       
                        </div>
                    )}
                    </Wrapper>
            </div>
+
        )
    }
 }
