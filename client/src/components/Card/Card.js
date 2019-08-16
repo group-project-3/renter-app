@@ -24,12 +24,14 @@ export function Card    (props) {
     const handleRentItem = (item_id) => {
         let rentObject = {
             item_id: item_id,
-            rented_from: rented_from,
             rented_to: rented_to,
+            rented_from: rented_from,
             user_id: user._id
         }
 
-        console.log(rentObject)
+        console.log(rented_to, rented_from)
+
+        // console.log(rentObject)
         API.rentItem(rentObject)
         .then(res => {
             console.log(res)
