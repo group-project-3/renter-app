@@ -8,7 +8,6 @@ import 'react-datepicker/dist/react-datepicker-cssmodules.css';
  
 
 export default function DatePick (props) {
-  console.log(props)
 
   return (      
     <div className="DatePick">

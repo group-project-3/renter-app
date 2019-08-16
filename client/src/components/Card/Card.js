@@ -48,6 +48,7 @@ export function Card    (props) {
         .then(res => {
             console.log(res)
             console.log("available val", {available})
+            setAvailable()
         })
         .catch(err => {
             console.log(err)
