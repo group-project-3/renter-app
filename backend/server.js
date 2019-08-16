@@ -4,10 +4,14 @@ const mongoose = require("mongoose");
 const routes = require("./routes/index");
 const app = express();
 const PORT = process.env.PORT || 3001;
+const fileUpload = require('express-fileupload');
+const cors = require('cors');
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors());
+app.use(fileUpload());
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
