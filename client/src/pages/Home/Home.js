@@ -3,6 +3,7 @@ import Card from "../../components/Card/Card.js";
 import Wrapper from "../../components/Wrapper";
 import API from "../../utils/API.js";
 import { UserConsumer } from "../../UserContext";
+import { SearchBar } from "../../components/SearchBar/SearchBar"
 
 import "./style.css"
 class Home extends Component {
@@ -29,26 +30,29 @@ class Home extends Component {
    render() {
        return (
 
-           <div>
-                <Wrapper>
-                   {this.state.items.map(item =>
-                    <div className="card_holder">
-                        
-                       <Card
-                            findItems={this.findItems}
-                           id={item._id}
-                           key={item._id}
-                           name={item.item_name}
-                           description={item.item_description}
-                           url={item.url}
-                           price={item.price}
-                           available={item.available}
-                       />
-                       
-                       </div>
-                   )}
-                   </Wrapper>
-           </div>
+                <UserConsumer>
+                {props => {
+                    return <div>
+                        <SearchBar />
+                        <Wrapper>
+                            {this.state.items.map(item =>
+                                <div className="card_holder">
+                                <Card
+                                        findItems={this.findItems}
+                                    id={item._id}
+                                    key={item._id}
+                                    name={item.item_name}
+                                    description={item.item_description}
+                                    url={item.url}
+                                    price={item.price}
+                                    available={item.available}
+                                />
+                                </div>
+                            )}
+                        </Wrapper>
+                    </div>
+                }}
+            </UserConsumer>
 
        )
    }
