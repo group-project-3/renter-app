@@ -48,6 +48,12 @@ export default {
     return axios.post("api/itemsRented/returnItem", item_id)
   },
 
+
+  //Image Resize
+  imageResize: (inputImage) => {
+    return axios.post("api/items/image", inputImage)
+  },
+
   //imgur upload
   imageUpload: (bodyFormData) => {
 
