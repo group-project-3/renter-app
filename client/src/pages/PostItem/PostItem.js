@@ -5,10 +5,6 @@ import { Input, EmailInput, PasswordInput, PriceInput, TextArea, FileInput, Form
 import UploadImage from "../../components/UploadImage/UploadImage";
 import { UserConsumer } from "../../UserContext";
 import API from "../../utils/API";
-const sharp = require('sharp');
-const uuid = require('uuid');
-
-
 
 class PostItem extends Component {
     state = {
@@ -42,34 +38,22 @@ class PostItem extends Component {
     }
 
     handleImageChange = event => {
-
-        let inputFile  = event.target.files[0];
-        let outputFile = uuid + ".jpg";
-
-        sharp(inputFile).resize({ height: 200, width: 200 }).toFile(outputFile)
-        .then(function(newFileInfo) {
-            console.log("Success");
-        })
-        .catch(function(err) {
-            console.log("Error occured");
-        });
-
-        this.setState({ image: outputFile }, this.callback)
+        this.setState({ image: event.target.files[0] }, this.callback)
     }
 
     handleImageUpload = event => {
         event.preventDefault();
         var bodyFormData = new FormData();
-        bodyFormData.append('image', this.state.image);
+        // bodyFormData.append('image', this.state.image);
 
-        API.imageUpload(bodyFormData)
-            .then(res => {
-                console.log(res)
-                this.setState({ url: res.data.data.link }, this.callback)
-                this.handleFormSubmit()
-            }).catch(err => {
-                console.log(err)
-            });
+        API.imageUpload(this.state.image)
+            // .then(res => {
+            //     console.log(res)
+            //     this.setState({ url: res.data.data.link }, this.callback)
+            //     this.handleFormSubmit()
+            // }).catch(err => {
+            //     console.log(err)
+            // });
     }
 
 
