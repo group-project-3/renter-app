@@ -2,7 +2,6 @@ import React, {useState, useEffect, useContext} from "react";
 import DatePick from "../DatePick/DatePick"
 import API from "../../utils/API"
 import { UserConsumer } from "../../UserContext";
-import UserProfile from "../../utils/UserProfile"
 import { Col, Row } from "../../components/Grid/Grid";
 import "./style.css";
 
