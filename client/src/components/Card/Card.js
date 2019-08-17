@@ -21,6 +21,7 @@ export function Card(props) {
                     <p className=""><span>&#36;</span>{props.price}</p>
                     <p>Rent Duration:</p>
                     <DatePick {...props} />
+                    <div class="card-footer">
                     {props.available ?
                     
                         <button className="btn btn-primary btn-sm btn-bottom"
@@ -32,6 +33,7 @@ export function Card(props) {
                                 onClick={() => { props.handleReturnItem(props.id) }}>Return
                     </button>
                         }
+                        </div>
                     </div>
                 </Col>
             </Row>
