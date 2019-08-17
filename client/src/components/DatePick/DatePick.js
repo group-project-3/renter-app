@@ -12,14 +12,15 @@ export default function DatePick (props) {
   return (      
     <div className="DatePick">
       <DatePicker
+        onChange={(event) => props.setrented_from(event)}
         selected={props.rented_from}
-        onChange={props.handleStartDate}
-        value={props.date}
+        dateFormat="MM/dd/yyyy"
+        value={props.rented_from}
       />
        <DatePicker
-         selected={props.rented_to}
-         onChange={props.handleEndDate}
-         value={props.date}
+        onChange={(event) => props.setrented_to(event)}
+        selected={props.rented_to}
+        dateFormat="MM/dd/yyyy"
          />
      </div>
     )
