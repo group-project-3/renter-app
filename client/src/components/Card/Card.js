@@ -17,11 +17,15 @@ export function Card (props) {
     const [rented_to, setrented_to] = useState(null);
     const user = useContext(UserConsumer)
 
+    useEffect(() => {
+        console.log(user._id)
+    })
+
     const handleRentItem = (item_id) => {
         let rentObject = {
             item_id: item_id,
-            rented_from: rented_from,
             rented_to: rented_to,
+            rented_from: rented_from,
             user_id: user._id
         }
 
@@ -48,6 +52,29 @@ export function Card (props) {
         })
     };
 
+    const renderContent = () => {
+        if (user._id) {
+            return   <div>
+                <p>Rent Duration:</p>
+                <DatePick setrented_from={setrented_from} setrented_to={setrented_to}
+                rented_to={rented_to} rented_from={rented_from}/>
+                {available ?
+                
+                    <button className="btn btn-sm  btn-primary"
+                        onClick={() => { handleRentItem(item_id) }}>Rent
+
+                </button>
+                        :
+                        <button className="btn btn-sm btn-primary"
+                            onClick={() => { handleReturnItem(item_id) }}>Return
+                </button>
+                    }
+            </div>                           
+        } else {
+            return <p>Please Sign In To Rent</p>
+        }
+    }
+
     return (
 
 
@@ -62,20 +89,9 @@ export function Card (props) {
                     <h5 className="card-title">{name}</h5>
                     <p className="line">{description}</p>
                     <p className="">{price}</p>
-                    <p>Rent Duration:</p>
-                    <DatePick setrented_from={setrented_from} setrented_to={setrented_to}
-                    rented_to={rented_to} rented_from={rented_from}/>
-                    {available ?
-                    
-                        <button className="btn btn-sm  btn-primary"
-                            onClick={() => { handleRentItem(item_id) }}>Rent
 
-                    </button>
-                            :
-                            <button className="btn btn-sm btn-primary"
-                                onClick={() => { handleReturnItem(item_id) }}>Return
-                    </button>
-                        }
+                    {renderContent()}
+                
                     </div>
                 </Col>
             </Row>
