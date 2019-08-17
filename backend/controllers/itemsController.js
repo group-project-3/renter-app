@@ -43,5 +43,8 @@ module.exports = {
                 response.json(dbModel)
             })
             .catch(err => response.status(422).json(err))
+    },
+    searchProducts: (request, response) => {
+
     }
 }
