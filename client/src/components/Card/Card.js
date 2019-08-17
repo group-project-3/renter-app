@@ -12,14 +12,10 @@ export function Card (props) {
     const [item_id, setID] = useState(props.id);
     const [price, setPrice] = useState(props.price);
     const [description, setDescription] = useState(props.description);
-    const [available, setAvailable] = useState(props.available);
+    let [available, setAvailable] = useState(props.available);
     const [rented_from, setrented_from] = useState(null);
     const [rented_to, setrented_to] = useState(null);
     const user = useContext(UserConsumer)
-
-    useEffect(() => {
-        console.log(user._id)
-    })
 
     const handleRentItem = (item_id) => {
         let rentObject = {
@@ -32,6 +28,7 @@ export function Card (props) {
         API.rentItem(rentObject)
         .then(res => {
             console.log(res)
+            setAvailable(available = false)
             console.log("available val", {available})
         })
         .catch(err => {
@@ -44,8 +41,8 @@ export function Card (props) {
         API.returnItem(item_id)
         .then(res => {
             console.log(res)
+            setAvailable(available = true)
             console.log("available val", {available})
-            setAvailable()
         })
         .catch(err => {
             console.log(err)
@@ -62,12 +59,11 @@ export function Card (props) {
                 
                     <button className="btn btn-sm  btn-primary"
                         onClick={() => { handleRentItem(item_id) }}>Rent
-
-                </button>
+                    </button>
                         :
-                        <button className="btn btn-sm btn-primary"
+                    <button className="btn btn-sm btn-primary"
                             onClick={() => { handleReturnItem(item_id) }}>Return
-                </button>
+                    </button>
                     }
             </div>                           
         } else {
