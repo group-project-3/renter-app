@@ -4,9 +4,7 @@ import { Col, Row, Container } from "../../components/Grid/Grid";
 import { Input, EmailInput, PasswordInput, PriceInput, TextArea, FileInput, FormBtn } from "../../components/Form/Form"
 import UploadImage from "../../components/UploadImage/UploadImage";
 import { UserConsumer } from "../../UserContext";
-
 import API from "../../utils/API";
-
 
 class PostItem extends Component {
     state = {
@@ -48,7 +46,7 @@ class PostItem extends Component {
         var bodyFormData = new FormData();
         bodyFormData.append('image', this.state.image);
 
-        API.imageUpload(bodyFormData)
+        API.imageUpload(this.state.image)
             .then(res => {
                 console.log(res)
                 this.setState({ url: res.data.data.link }, this.callback)

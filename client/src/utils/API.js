@@ -51,14 +51,14 @@ export default {
   //imgur upload
   imageUpload: (bodyFormData) => {
 
-    return axios({
-      url: 'https://api.imgur.com/3/image',
-      method: 'POST',
-      headers: {
-        'Authorization': 'Client-ID 4ab89fea97d23c8',
-        'Content-Type': "multipart/form-data"
-      },
-      data: bodyFormData,
-    })
-  }
+  return axios({
+    url: 'https://api.imgur.com/3/image',
+    method: 'POST',
+    headers: {
+      'Authorization': 'Client-ID 4ab89fea97d23c8',
+      'Content-Type': "multipart/form-data"
+    },
+    data: bodyFormData,
+  })
+}
 };

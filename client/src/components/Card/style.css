@@ -19,9 +19,16 @@
     margin: 0.95rem;  
 }
 .card-img-top {
-    width: 40%;
     border-top-left-radius: calc(0.25rem - 1px);
     border-top-right-radius: calc(0.25rem - 1px);
+    object-fit: fill;
+    height: 195px;
+    width: 250px; 
+}
+
+.img-container {
+
+    object-fit: contain
 }
 
 .card-body {
