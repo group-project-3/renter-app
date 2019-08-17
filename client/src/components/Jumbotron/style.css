@@ -18,11 +18,23 @@
 margin: 0px 0px 2px 0px
 }
 
-.jumbotron h1 {
+.jumbotron h4 {
   font-family: 'Great Vibes', cursive;
-  font-size: 75px;
   color: white;
   position: relative;
   top: 50%;
   transform: translateY(-50%);
+  margin-bottom: 75px;
+}
+
+.mt-4{
+  margin-left: 70%;
+  width:70%;
+  margin-top: 10px;
+}
+
+button{
+  border-radius: 10%;
+  margin-left: 3px;
+  
 }
