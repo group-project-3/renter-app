@@ -16,17 +16,17 @@ export function Card(props) {
                 <div className="card-body">
                     <h5 className="card-title">{props.name}</h5>
                     <p className="line">{props.description}</p>
-                    <p className="">{props.price}</p>
+                    <p className=""><span>&#36;</span>{props.price}</p>
                     <p>Rent Duration:</p>
                     <DatePick {...props} />
                     {props.available ?
                     
-                        <button className="btn btn-sm  btn-primary"
+                        <button className="btn btn-primary btn-sm btn-bottom"
                             onClick={() => { props.handleRentItem(props.id) }}>Rent
 
                     </button>
                             :
-                            <button className="btn btn-sm btn-primary"
+                            <button className="btn btn-primary btn-sm btn-bottom"
                                 onClick={() => { props.handleReturnItem(props.id) }}>Return
                     </button>
                         }
