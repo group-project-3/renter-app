@@ -85,7 +85,7 @@ export function Card (props) {
                 <div className="card-body">
                     <h5 className="card-title">{name}</h5>
                     <p className="line">{description}</p>
-                    <p className="">{price}</p>
+                    <p className=""><span>&#36;</span>{price}</p>
 
                     {renderContent()}
                 
