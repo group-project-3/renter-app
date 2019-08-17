@@ -44,16 +44,16 @@ class PostItem extends Component {
     handleImageUpload = event => {
         event.preventDefault();
         var bodyFormData = new FormData();
-        // bodyFormData.append('image', this.state.image);
+        bodyFormData.append('image', this.state.image);
 
         API.imageUpload(this.state.image)
-            // .then(res => {
-            //     console.log(res)
-            //     this.setState({ url: res.data.data.link }, this.callback)
-            //     this.handleFormSubmit()
-            // }).catch(err => {
-            //     console.log(err)
-            // });
+            .then(res => {
+                console.log(res)
+                this.setState({ url: res.data.data.link }, this.callback)
+                this.handleFormSubmit()
+            }).catch(err => {
+                console.log(err)
+            });
     }
 
 

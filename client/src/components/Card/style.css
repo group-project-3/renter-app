@@ -24,6 +24,12 @@
     border-top-right-radius: calc(0.25rem - 1px);
 }
 
+.img-container {
+    max-height: 250px;
+    max-width: 300px; 
+    object-fit: cover
+}
+
 .card-body {
     -webkit-box-flex: 1;
     -ms-flex: 1 1 auto;
