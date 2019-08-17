@@ -11,7 +11,6 @@ export function Card(props) {
 
             <Col size="md-6" className="itemImg" style={{"max-height" : "185px", "float" : "left"}}>
                 <div className="img-container">
-                {/* <img src={props.url} className="card-img-top" alt="..." style={{"max-height" : "200px", "max-width" : "200px", "float" : "left"}}></img> */}
                 <img src={props.url} className="card-img-top" alt="..." style={{"float" : "left"}}></img>
                 </div>
             </Col>
