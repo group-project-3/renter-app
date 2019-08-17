@@ -42,6 +42,14 @@ p.line{
     line-height: normal;
 }
 
-p.currency{
-    
+.card-footer {
+    padding: 0.75rem 0.0rem; 
+    background-color: white;
+    border-top: 0px;
 }
+
+
+.btn-sm {
+    padding: 0.25rem 1.1rem;
+    font-size: 1rem;
+} 

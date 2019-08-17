@@ -54,8 +54,9 @@ export function Card (props) {
                 <p>Rent Duration:</p>
                 <DatePick setrented_from={setrented_from} setrented_to={setrented_to}
                 rented_to={rented_to} rented_from={rented_from}/>
+                <div class="card-footer">
                 {available ?
-                
+                    
                     <button className="btn btn-sm  btn-primary"
                         onClick={() => { handleRentItem(item_id) }}>Rent
                     </button>
@@ -64,6 +65,7 @@ export function Card (props) {
                             onClick={() => { handleReturnItem(item_id) }}>Return
                     </button>
                     }
+                    </div>
             </div>                           
         } else {
             return <p>Please Sign In To Rent</p>
