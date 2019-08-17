@@ -47,4 +47,5 @@ module.exports = {
     searchProducts: (request, response) => {
 
     }
+   
 }

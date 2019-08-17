@@ -10,23 +10,25 @@ export function Card(props) {
             <Row>
 
             <Col size="md-6" className="itemImg" style={{"max-height" : "185px", "float" : "left"}}>
-                <img src={props.url} className="card-img-top" alt="..." style={{"max-height" : "300px", "float" : "left"}}></img>
+                <div className="img-container">
+                <img src={props.url} className="card-img-top" alt="..." style={{"float" : "left"}}></img>
+                </div>
             </Col>
             <Col size="md-6" className="itemInfo" style={{"float" : "right"}}>
                 <div className="card-body">
                     <h5 className="card-title">{props.name}</h5>
                     <p className="line">{props.description}</p>
-                    <p className="">{props.price}</p>
+                    <p className=""><span>&#36;</span>{props.price}</p>
                     <p>Rent Duration:</p>
                     <DatePick {...props} />
                     {props.available ?
                     
-                        <button className="btn btn-sm  btn-primary"
+                        <button className="btn btn-primary btn-sm btn-bottom"
                             onClick={() => { props.handleRentItem(props.id) }}>Rent
 
                     </button>
                             :
-                            <button className="btn btn-sm btn-primary"
+                            <button className="btn btn-primary btn-sm btn-bottom"
                                 onClick={() => { props.handleReturnItem(props.id) }}>Return
                     </button>
                         }
