@@ -13,6 +13,7 @@ const location = require("./locationsController")
 // Defining methods for the usersController
 module.exports = {
     getAuthenticatedUser: (request, response) => {
+        console.log("getAuthenticatedUser: ", request.params.session_token)
         db.User.findOne({ session_token: request.params.session_token })
             .then(userObject => {
                 userObject.password = undefined

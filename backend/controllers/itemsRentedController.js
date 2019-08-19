@@ -1,92 +1,79 @@
-var mongoose = require("mongoose");
-require("dotenv").config();
-
+const moment = require("moment");
 const db = require("../models");
 
-// const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost/renter-app";
-// mongoose.connect(MONGO_URI, { useNewUrlParser: true });
 
 module.exports = {
     findAll: (request, response) => {
         db.ItemRented
             .find()
-            .then(dbModel => response.json(dbModel))
-            .catch(err => response.status(422).json(err))
+            .then(itemRentedObject => response.json(itemRentedObject))
+            .catch(err => response.status(422).json(err.errors))
     },
 
     findItemsRentedByUser: (request, response) => {
         db.ItemRented
-            .find({ user: request.user_id })
-            .then(dbModel => response.json(dbModel))
-            .catch(err => response.status(422).json(err))
+            .findOne({ user: request.user_id })
+            .then(itemRentedObject => response.json(itemRentedObject))
+            .catch(err => response.status(422).json(err.errors))
     },
 
     returnItem: (request, response) => {
-        let now = Date.now();
-
         db.ItemRented
             .findOneAndUpdate(
-                {_id: request.body.item_id},
-                { returned: now },
+                { item_id: request.body.item_id , renter_id: request.body.user_id },
+                { returned: Date.now() },
                 { new: true, runValidators: true })
-            .then(dbModel => {
+            .then(returnedItemObject => {
+                console.log("Returned Item: ", returnedItemObject.item_id)
                 db.Item
                     .findOneAndUpdate(
-                        {_id: request.body.item_id},
+                        { _id: request.body.item_id },
                         { available: true },
                         { new: true, runValidators: true })
-                    .then(dbModel => {
-                        response.json(dbModel)
+                    .then(itemObject => {
+                        response.json(itemObject)
                     })
-                    .catch(err => response.status(422).json(err))
+                    .catch(err => {
+                        console.log(err.errors)
+                        response.status(422).json(err.errors)
+                    })
             })
-            .catch(err => response.status(422).json(err))
+            .catch(err => response.status(422).json(err.errors))
     },
 
     rentItem: (request, response) => {
-        let now = Date.now();
-        console.log(request.body);
         db.Item
             .findOneAndUpdate(
                 { _id: request.body.item_id },
                 { available: false },
                 { new: true, runValidators: true })
-            .then(dbModel => {
-                console.log('after update item')
-                // let rentedItem = createRentedObject(request.body.item_id);
+            .then(itemObject => {
+                console.log("rent item: ", itemObject._id)
+                let price = itemObject.price;
+                let difference = moment(request.body.rented_from).from(moment(request.body.rented_to), true)[0];
+                if (difference === "a") {
+                    difference = 1;
+                }
                 let rentedObject = {
-                    // item_id: item_id,
                     item_id: request.body.item_id,
                     renter_id: request.body.user_id,
-                    rented_from: now,
-                    rented_to: now,
+                    rented_from: request.body.rented_from,
+                    rented_to: request.body.rented_to,
                     returned: "",
-                    price: 29.99
+                    price: parseFloat(price) * parseInt(difference)
                 };
-                console.log('returned created rented object')
-                console.log(dbModel)
                 db.ItemRented
                     .create(rentedObject)
-                    .then(dbModel => {
-                        response.json(dbModel)
+                    .then(itemRentedObject => {
+                        response.json(itemRentedObject)
                     })
-                    .catch(err => response.status(422).json(err))
+                    .catch(err => {
+                        response.status(422).json(err.errors)
+                    })
             })
-            .catch(err => response.status(422).json(err))
+            .catch(err => response.status(422).json(err.errors))
     },
-
-
 }
 
-const createRentedObject = (item_id) => {
-    console.log('create rented object')
-    let now = Date.now()
-    return {
-        item_id: item_id,
-        renter_id: request.body.user_id,
-        rented_from: now,
-        rented_to: now,
-        returned: "",
-        price: 29.99
-    };
-}
+
+

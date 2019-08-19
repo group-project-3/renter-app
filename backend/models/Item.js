@@ -3,7 +3,6 @@ const Schema = mongoose.Schema;
 
 const itemSchema = new Schema({
     item_name: { type: String, required: true },
-    // item_type_id: {},
     url: { type: String, required: true },
     item_description: { type: String, required: true },
     location_id: {},
