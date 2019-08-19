@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Nav from './components/Nav/Nav';
-import Jumbotron from './components/Jumbotron/Jumbotron';
+// import Jumbotron from './components/Jumbotron/Jumbotron';
 import Home from "./pages/Home/Home";
 import Register from "./pages/Register/Register";
 import LogIn from "./pages/LogIn/LogIn"
@@ -34,7 +34,7 @@ class App extends Component {
       <Router>
         <UserProvider value={this.state.user}>
           <Nav />
-          <Jumbotron />
+          {/* <Jumbotron /> */}
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/datepick" component={DatePick} />
