@@ -23,7 +23,7 @@ export function Card (props) {
             rented_from: rented_from,
             user_id: user._id
         }
-
+        console.log(rentObject);
         API.rentItem(rentObject)
         .then(res => {
             console.log(res)
@@ -36,8 +36,11 @@ export function Card (props) {
     };
 
     const handleReturnItem = (item_id) => {
-
-        API.returnItem(item_id)
+        let rentObject = {
+            item_id: item_id,
+            user_id: user._id
+        }
+        API.returnItem(rentObject)
         .then(res => {
             console.log(res)
             setAvailable(available = true)
