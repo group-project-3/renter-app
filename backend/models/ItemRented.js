@@ -12,7 +12,7 @@ const itemRentedSchema = new Schema({
     },
     rented_from: { type: Date, required: true },
     rented_to: { type: Date, required: true },
-    returned: { type: Date, required: true },
+    returned: { type: Date},
     price: { type: Number, required: true }
 });
 const ItemRented = mongoose.model("ItemRented", itemRentedSchema);
