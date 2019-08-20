@@ -44,6 +44,8 @@ export function Card (props) {
         .then(res => {
             console.log(res)
             setAvailable(available = true)
+            setrented_from(null)
+            setrented_to(null)
             console.log("available val", {available})
         })
         .catch(err => {
@@ -78,7 +80,7 @@ export function Card (props) {
     return (
 
 
-        <div className="card" style={{ "min-width": "960px", "max-height": "200px", "margin-bottom": "50px", "margin-left": "200px" }}>
+        <div className="card" style={{ "min-width": "960px", "max-height": "200px", "margin-bottom": "5px"}}>
             <Row>
 
             <Col size="md-6" className="itemImg" style={{"max-height" : "185px", "float" : "left"}}>
