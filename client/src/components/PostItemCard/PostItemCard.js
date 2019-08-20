@@ -1,13 +1,14 @@
 import React from "react";
 import { Input, PriceInput, TextArea, FormBtn } from "../../components/Form/Form"
 import UploadImage from "../../components/UploadImage/UploadImage";
+import "./style.css"
 
 
 export default function(props) {
 
 
     return (
-                <div>
+                <div className="card-background">
 
 
 
@@ -16,28 +17,28 @@ export default function(props) {
                     <br></br>
                     <form>
                         <Input
-                            value={this.state.item_name}
-                            onChange={this.handleInputChange}
+                            value={props.state.item_name}
+                            onChange={props.handleInputChange}
                             name="item_name"
                             placeholder="Please Enter a Name for your Item"
                         />
 
                         <TextArea
-                            value={this.state.item_description}
-                            onChange={this.handleInputChange}
+                            value={props.state.item_description}
+                            onChange={props.handleInputChange}
                             name="item_description"
                             placeholder="Please Enter an Item Description"
                         />
 
                         <PriceInput
-                            value={this.state.price}
-                            onChange={this.handleInputChange}
+                            value={props.state.price}
+                            onChange={props.handleInputChange}
                             name="price"
                             placeholder="Please Enter a Price"
                         />
 
-                        <UploadImage handleImageChange={this.handleImageChange} />
-                        <FormBtn onClick={this.handleFormSubmit} onClick={this.handleImageUpload}>
+                        <UploadImage handleImageChange={props.handleImageChange} />
+                        <FormBtn onClick={props.handleFormSubmit} onClick={props.handleImageUpload}>
                             Submit
                         </FormBtn>
 
@@ -45,6 +46,6 @@ export default function(props) {
                     </form>
 
 
-    </div>
+                </div>
     )
 }

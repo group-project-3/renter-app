@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import { Col, Row, Container } from "../../components/Grid/Grid";
-import { Input, EmailInput, PasswordInput, PriceInput, TextArea, FileInput, FormBtn } from "../../components/Form/Form"
-import UploadImage from "../../components/UploadImage/UploadImage";
+import Wrapper from "../../components/Wrapper/index"
 import PostItemCard from "../../components/PostItemCard/PostItemCard"
 import { UserConsumer } from "../../UserContext";
 import API from "../../utils/API";
@@ -62,14 +60,20 @@ class PostItem extends Component {
             <UserConsumer>
                 {props => {
                     return <div>
-                            <PostItemCard
-                            handleFormSubmit={this.handleFormSubmit}
-                            handleInputChange={this.handleInputChange}
-                            handleImageChange={this.handleImageChange}
-                            handleImageUpload={this.handleImageUpload}
-                            >
+                                    <Wrapper>
 
-                            </PostItemCard>
+                                        <div className="card-holder">
+                                            <PostItemCard
+                                            state={this.state}
+                                            handleFormSubmit={this.handleFormSubmit}
+                                            handleInputChange={this.handleInputChange}
+                                            handleImageChange={this.handleImageChange}
+                                            handleImageUpload={this.handleImageUpload}
+                                            >
+
+                                            </PostItemCard>
+                                        </div>
+                                    </Wrapper>
                     </div>
                 }}
             </UserConsumer>

@@ -1,0 +1,9 @@
+.card-background {
+    position: flex;
+    justify-content: center;
+    border-radius: 25px;
+    background-color: white;
+    height: 420px;
+    width: 450px;
+    padding: 2em;
+}
