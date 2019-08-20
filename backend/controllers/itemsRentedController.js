@@ -1,5 +1,6 @@
 const moment = require("moment");
 const db = require("../models");
+const gmail = require("./emailController")
 
 
 module.exports = {
@@ -20,7 +21,7 @@ module.exports = {
     returnItem: (request, response) => {
         db.ItemRented
             .findOneAndUpdate(
-                { item_id: request.body.item_id , renter_id: request.body.user_id },
+                { item_id: request.body.item_id, renter_id: request.body.user_id },
                 { returned: Date.now() },
                 { new: true, runValidators: true })
             .then(returnedItemObject => {
@@ -55,6 +56,7 @@ module.exports = {
                     difference = 1;
                 }
                 let rentedObject = {
+                    email_address: request.body.email_address,
                     item_id: request.body.item_id,
                     renter_id: request.body.user_id,
                     rented_from: request.body.rented_from,
@@ -65,6 +67,7 @@ module.exports = {
                 db.ItemRented
                     .create(rentedObject)
                     .then(itemRentedObject => {
+                        gmail.sendRentedEmail(rentedObject)
                         response.json(itemRentedObject)
                     })
                     .catch(err => {

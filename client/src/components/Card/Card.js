@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext} from "react";
+import React, { useState, useEffect, useContext } from "react";
 import DatePick from "../DatePick/DatePick"
 import API from "../../utils/API"
 import { UserConsumer } from "../../UserContext";
@@ -6,7 +6,7 @@ import { Col, Row } from "../../components/Grid/Grid";
 import "./style.css";
 
 
-export function Card (props) {
+export function Card(props) {
     const [name, setName] = useState(props.name)
     const [item_id, setID] = useState(props.id);
     const [price, setPrice] = useState(props.price);
@@ -16,23 +16,25 @@ export function Card (props) {
     const [rented_to, setrented_to] = useState(null);
     const user = useContext(UserConsumer)
 
-    const handleRentItem = (item_id) => {
+    const handleRentItem = (item_id, price) => {
         let rentObject = {
+            email_address: user.email_address,
             item_id: item_id,
+            price: price,
             rented_to: rented_to,
             rented_from: rented_from,
             user_id: user._id
         }
         console.log(rentObject);
         API.rentItem(rentObject)
-        .then(res => {
-            console.log(res)
-            setAvailable(available = false)
-            console.log("available val", {available})
-        })
-        .catch(err => {
-            console.log(err)
-        })
+            .then(res => {
+                console.log(res)
+                setAvailable(available = false)
+                console.log("available val", { available })
+            })
+            .catch(err => {
+                console.log(err)
+            })
     };
 
     const handleReturnItem = (item_id) => {
@@ -55,23 +57,23 @@ export function Card (props) {
 
     const renderContent = () => {
         if (user._id) {
-            return   <div>
+            return <div>
                 <p>Rent Duration:</p>
                 <DatePick setrented_from={setrented_from} setrented_to={setrented_to}
-                rented_to={rented_to} rented_from={rented_from}/>
+                    rented_to={rented_to} rented_from={rented_from} />
                 <div class="card-footer">
-                {available ?
-                    
-                    <button className="btn btn-sm  btn-primary"
-                        onClick={() => { handleRentItem(item_id) }}>Rent
+                    {available ?
+
+                        <button className="btn btn-sm  btn-primary"
+                            onClick={() => { handleRentItem(item_id) }}>Rent
                     </button>
                         :
-                    <button className="btn btn-sm btn-primary"
+                        <button className="btn btn-sm btn-primary"
                             onClick={() => { handleReturnItem(item_id) }}>Return
                     </button>
                     }
-                    </div>
-            </div>                           
+                </div>
+            </div>
         } else {
             return <p>Please Sign In To Rent</p>
         }
@@ -83,19 +85,19 @@ export function Card (props) {
         <div className="card" style={{ "min-width": "960px", "max-height": "200px", "margin-bottom": "5px"}}>
             <Row>
 
-            <Col size="md-6" className="itemImg" style={{"max-height" : "185px", "float" : "left"}}>
-                <div className="img-container">
-                <img src={props.url} className="card-img-top" alt="..." style={{"float" : "left"}}></img>
-                </div>
-            </Col>
-            <Col size="md-6" className="itemInfo" style={{"float" : "right"}}>
-                <div className="card-body">
-                    <h5 className="card-title">{name}</h5>
-                    <p className="line">{description}</p>
-                    <p className=""><span>&#36;</span>{price}</p>
+                <Col size="md-6" className="itemImg" style={{ "max-height": "185px", "float": "left" }}>
+                    <div className="img-container">
+                        <img src={props.url} className="card-img-top" alt="..." style={{ "float": "left" }}></img>
+                    </div>
+                </Col>
+                <Col size="md-6" className="itemInfo" style={{ "float": "right" }}>
+                    <div className="card-body">
+                        <h5 className="card-title">{name}</h5>
+                        <p className="line">{description}</p>
+                        <p className=""><span>&#36;</span>{price}</p>
 
-                    {renderContent()}
-                
+                        {renderContent()}
+
                     </div>
                 </Col>
             </Row>
