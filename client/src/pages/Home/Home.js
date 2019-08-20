@@ -34,9 +34,9 @@ class Home extends Component {
                     return <div>
                         <Wrapper>
                             {this.state.items.map(item =>
-                                <div className="card_holder">
+
                                 <Card
-                                        findItems={this.findItems}
+                                    findItems={this.findItems}
                                     id={item._id}
                                     key={item._id}
                                     name={item.item_name}
@@ -45,7 +45,7 @@ class Home extends Component {
                                     price={item.price}
                                     available={item.available}
                                 />
-                                </div>
+
                             )}
                         </Wrapper>
                     </div>

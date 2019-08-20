@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom"
-import { Col, Row, Container } from "../../components/Grid/Grid";
-import { Input, EmailInput, PasswordInput, PriceInput, TextArea, FileInput, FormBtn } from "../../components/Form/Form"
-import UploadImage from "../../components/UploadImage/UploadImage";
+import Wrapper from "../../components/Wrapper/index"
+import PostItemCard from "../../components/PostItemCard/PostItemCard"
 import { UserConsumer } from "../../UserContext";
 import API from "../../utils/API";
 
@@ -14,10 +12,6 @@ class PostItem extends Component {
         price: "",
         image: null,
     };
-
-    callback = () => {
-        console.log(this.state);
-    }
 
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -62,47 +56,22 @@ class PostItem extends Component {
             <UserConsumer>
                 {props => {
                     return <div>
-                        <Container fluid>
-                            <Row>
-                                <Col size="md-3"></Col>
-                                <Col size="md-6">
-                                    <h1>Post an Item</h1>
-                                    <br></br>
-                                    <form>
-                                        <Input
-                                            value={this.state.item_name}
-                                            onChange={this.handleInputChange}
-                                            name="item_name"
-                                            placeholder="Please Enter a Name for your Item"
-                                        />
+                                    <Wrapper>
 
-                                        <TextArea
-                                            value={this.state.item_description}
-                                            onChange={this.handleInputChange}
-                                            name="item_description"
-                                            placeholder="Please Enter an Item Description"
-                                        />
+                                        <div className="card-holder">
+                                            <PostItemCard
+                                            state={this.state}
+                                            handleFormSubmit={this.handleFormSubmit}
+                                            handleInputChange={this.handleInputChange}
+                                            handleImageChange={this.handleImageChange}
+                                            handleImageUpload={this.handleImageUpload}
+                                            >
 
-                                        <PriceInput
-                                            value={this.state.price}
-                                            onChange={this.handleInputChange}
-                                            name="price"
-                                            placeholder="Please Enter a Price"
-                                        />
+                                            </PostItemCard>
+                                        </div>
 
-                                        <UploadImage handleImageChange={this.handleImageChange} />
-                                        <FormBtn onClick={this.handleFormSubmit} onClick={this.handleImageUpload}>
-                                            Submit
-                            </FormBtn>
-
-
-                                    </form>
-                                </Col>
-                                <Col size="md-3"></Col>
-                            </Row>
-                        </Container>
-                    </div>
-
+                                    </Wrapper>
+                            </div>
                 }}
             </UserConsumer>
         );
