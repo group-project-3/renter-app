@@ -44,6 +44,8 @@ export function Card (props) {
         .then(res => {
             console.log(res)
             setAvailable(available = true)
+            setrented_from(null)
+            setrented_to(null)
             console.log("available val", {available})
         })
         .catch(err => {
