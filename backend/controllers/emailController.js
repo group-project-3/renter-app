@@ -44,5 +44,21 @@ module.exports = {
             error ? console.log(error) : console.log(response);
             smtpTransport.close();
         });
+    },
+    sendRentedEmail: (rentedObject) => {
+        console.log("itemrentedObj........." + rentedObject)
+
+        const mailOptions = {
+            from: process.env.GMAIL_USER,
+            to: rentedObject.email_address,
+            subject: "Congrats! Your item has been rented!",
+            generateTextFromHTML: true,
+            html: "<p>Your item has been rented from " + rentedObject.rented_from + " to " + rentedObject.rented_to + " for a total of " + "$" + rentedObject.price + "! </p>"
+        };
+
+        smtpTransport.sendMail(mailOptions, (error, response) => {
+            error ? console.log(error) : console.log(response);
+            smtpTransport.close();
+        });
     }
 }
