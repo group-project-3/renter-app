@@ -13,10 +13,6 @@ class PostItem extends Component {
         image: null,
     };
 
-    callback = () => {
-        console.log(this.state);
-    }
-
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({ [name]: value }, this.callback);
@@ -73,6 +69,7 @@ class PostItem extends Component {
 
                                             </PostItemCard>
                                         </div>
+                                        
                                     </Wrapper>
                     </div>
                 }}

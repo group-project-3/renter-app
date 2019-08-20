@@ -8,9 +8,7 @@ export default function(props) {
 
 
     return (
-                <div className="card-background">
-
-
+            <div className="card-background">
 
 
                     <h1>Post an Item</h1>
@@ -46,6 +44,6 @@ export default function(props) {
                     </form>
 
 
-                </div>
+            </div>
     )
 }
