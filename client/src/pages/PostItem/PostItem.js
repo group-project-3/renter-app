@@ -69,9 +69,9 @@ class PostItem extends Component {
 
                                             </PostItemCard>
                                         </div>
-                                        
+
                                     </Wrapper>
-                    </div>
+                            </div>
                 }}
             </UserConsumer>
         );
