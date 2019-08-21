@@ -18,10 +18,6 @@ class Register extends Component {
         redirect: false
     };
 
-    callback = () => {
-        console.log(this.state);
-    }
-
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({ [name]: value }, this.callback);
@@ -41,7 +37,6 @@ class Register extends Component {
 
         }
 
-        console.log(registerObject)
         if (this.state.password !== this.state.password_confirm) {
             console.log("error: invalid password");
         } else {
