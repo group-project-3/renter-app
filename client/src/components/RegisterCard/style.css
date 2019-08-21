@@ -1,0 +1,9 @@
+.register-background {
+    position: flex;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: white;
+    height: 800px;
+    width: 450px;
+    padding: 2em;
+}

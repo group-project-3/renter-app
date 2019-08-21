@@ -1,10 +1,11 @@
 import React from "react";
 import { Input, EmailInput, PasswordInput, FormBtn, LocationInput } from "../../components/Form/Form";
+import "./style.css"
 
 export default function(props) {
 
     return (
-        <div className="card-background">
+        <div className="register-background">
                                 <h1>Register a New Account</h1>
                                 <br></br>
                                 <form>
