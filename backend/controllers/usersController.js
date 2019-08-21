@@ -79,6 +79,7 @@ module.exports = {
                 salt: hashedPassword.salt,
                 session_token: ""
             };
+
             db.User
                 .create(userRequest)
                 .then(dbModel => response.json(dbModel))
