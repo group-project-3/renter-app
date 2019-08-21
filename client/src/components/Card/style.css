@@ -17,6 +17,7 @@
     border: 1px solid rgba(0,0,0,0.125);
     border-radius: 0.25rem;
     /* margin: 0.95rem; */
+    color: black
 }
 .card-img-top {
     border-top-left-radius: calc(0.25rem - 1px);
@@ -53,3 +54,25 @@ p.line{
     padding: 0.25rem 1.1rem;
     font-size: 1rem;
 } 
+
+.line{
+    font-size: 80%;
+}
+
+.price{
+    font-size: 95%;
+    color: green;
+    font-weight: bold
+}
+
+.card-title{
+    margin-bottom: 5px
+}
+
+.rent-duration{
+    font-size: 80%
+}
+
+button{
+    float: left
+}

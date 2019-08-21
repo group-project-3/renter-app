@@ -43,32 +43,32 @@ export function Card(props) {
             user_id: user._id
         }
         API.returnItem(rentObject)
-        .then(res => {
-            console.log(res)
-            setAvailable(available = true)
-            setrented_from(null)
-            setrented_to(null)
-            console.log("available val", {available})
-        })
-        .catch(err => {
-            console.log(err)
-        })
+            .then(res => {
+                console.log(res)
+                setAvailable(available = true)
+                setrented_from(null)
+                setrented_to(null)
+                console.log("available val", { available })
+            })
+            .catch(err => {
+                console.log(err)
+            })
     };
 
     const renderContent = () => {
         if (user._id) {
             return <div>
-                <p>Rent Duration:</p>
+                <p class="rent-duration">Rent Duration:</p>
                 <DatePick setrented_from={setrented_from} setrented_to={setrented_to}
                     rented_to={rented_to} rented_from={rented_from} />
                 <div class="card-footer">
                     {available ?
 
-                        <button className="btn btn-sm  btn-primary"
+                        <button className="btn btn-m  btn-primary btn-success"
                             onClick={() => { handleRentItem(item_id) }}>Rent
                     </button>
                         :
-                        <button className="btn btn-sm btn-primary"
+                        <button className="btn btn-m btn-success btn-primary"
                             onClick={() => { handleReturnItem(item_id) }}>Return
                     </button>
                     }
@@ -82,7 +82,7 @@ export function Card(props) {
     return (
 
 
-        <div className="card" style={{ "min-width": "960px", "max-height": "200px", "margin-bottom": "5px"}}>
+        <div className="card" style={{ "min-width": "960px", "max-height": "200px", "margin-bottom": "20px" }}>
             <Row>
 
                 <Col size="md-6" className="itemImg" style={{ "max-height": "185px", "float": "left" }}>
@@ -92,9 +92,9 @@ export function Card(props) {
                 </Col>
                 <Col size="md-6" className="itemInfo" style={{ "float": "right" }}>
                     <div className="card-body">
-                        <h5 className="card-title">{name}</h5>
+                        <h4 className="card-title">{name}</h4>
                         <p className="line">{description}</p>
-                        <p className=""><span>&#36;</span>{price}</p>
+                        <p className="price"><span>&#36;</span>{price}</p>
 
                         {renderContent()}
 
