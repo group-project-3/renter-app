@@ -4,7 +4,7 @@ import { Input, PasswordInput, FormBtn } from "../../components/Form/Form"
 import { BrowserRouter as Router, Redirect, Switch } from "react-router-dom";
 import API from "../../utils/API";
 import { UserConsumer } from "../../UserContext";
-
+import Wrapper from "../../components/Wrapper";
 import "./style.css";
 
 class LogIn extends Component {
@@ -52,35 +52,39 @@ class LogIn extends Component {
             <UserConsumer>
                 {props => {
                     return <div>
-                        <Container fluid>
-                            <Row>
-                                <Col size="md-3"></Col>
-                                <Col size="md-6">
-                                    <h1>Sign in</h1>
-                                    <br></br>
-                                    <form>
-                                        <p>Username</p>
-                                        <Input
-                                            value={this.state.username}
-                                            onChange={this.handleInputChange}
-                                            name="username"
-                                            placeholder="Enter Your Username"
-                                        />
-                                        <p>Password</p>
-                                        <PasswordInput
-                                            value={this.state.password}
-                                            onChange={this.handleInputChange}
-                                            name="password"
-                                            placeholder="Enter Your Password"
-                                        />
-                                        <FormBtn onClick={this.handleFormSubmit} >
-                                            Sign in
+                        <Wrapper>
+                            <Container fluid>
+                            <div className="signIn">
+                                <Row>
+                                    <Col size="md-3"></Col>
+                                    <Col size="md-6">
+                                        <h1>Sign in</h1>
+                                        <br></br>
+                                        <form>
+                                            <p>Username</p>
+                                            <Input
+                                                value={this.state.username}
+                                                onChange={this.handleInputChange}
+                                                name="username"
+                                                placeholder="Enter Your Username"
+                                            />
+                                            <p>Password</p>
+                                            <PasswordInput
+                                                value={this.state.password}
+                                                onChange={this.handleInputChange}
+                                                name="password"
+                                                placeholder="Enter Your Password"
+                                            />
+                                            <FormBtn onClick={this.handleFormSubmit} >
+                                                Sign in
                                         </FormBtn>
-                                    </form>
-                                </Col>
-                                <Col size="md-3"></Col>
-                            </Row>
-                        </Container>
+                                        </form>
+                                    </Col>
+                                    <Col size="md-3"></Col>
+                                </Row>
+                                </div>
+                            </Container>
+                        </Wrapper>
                     </div>
                 }}
             </UserConsumer>
