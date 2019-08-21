@@ -32,10 +32,19 @@ class Register extends Component {
     handleFormSubmit = event => {
         event.preventDefault();
         
+        let registerObject = {
+            first_name: this.state.first_name,
+            last_name: this.state.last_name,
+            email_address: this.state.email_address,
+            username: this.state.username,
+            password: this.state.password,
+            location: this.state.location,
+
+        }
         if (this.state.password !== this.state.password_confirm) {
             console.log("error: invalid password");
         } else {
-            API.create(this.state)
+            API.create(registerObject)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
         }
