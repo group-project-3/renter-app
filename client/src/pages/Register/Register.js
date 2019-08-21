@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import Wrapper from "../../components/Wrapper/index"
-import { Col, Row, Container } from "../../components/Grid/Grid";
-import { Input, EmailInput, PasswordInput, FormBtn, LocationInput } from "../../components/Form/Form";
 import { BrowserRouter as Router, Redirect, Switch } from "react-router-dom";
-import "./style.css";
 import { UserConsumer } from "../../UserContext";
 import RegisterCard from "../../components/RegisterCard/RegisterCard";
+import "./style.css";
 
 class Register extends Component {
     state = {
@@ -41,6 +39,8 @@ class Register extends Component {
             location: this.state.location,
 
         }
+
+        console.log(registerObject)
         if (this.state.password !== this.state.password_confirm) {
             console.log("error: invalid password");
         } else {
