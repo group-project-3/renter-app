@@ -36,6 +36,7 @@ class Register extends Component {
             email_address: this.state.email_address,
             username: this.state.username,
             password: this.state.password,
+            password_confirm: this.state.password_confirm,
             location: this.state.location,
 
         }

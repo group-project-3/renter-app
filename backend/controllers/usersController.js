@@ -60,7 +60,7 @@ module.exports = {
             })
     },
     create: (request, response) => {
-        console.log(request.body)
+        console.log(request.body.email_address, request.body.password)
         if (!request.body.email_address.includes("@") || !request.body.email_address.includes(".")) {
             response.status(400).json({ 'error': 'email is not valid' });
         } else if (request.body.password !== request.body.password_confirm) {
@@ -80,6 +80,8 @@ module.exports = {
                 salt: hashedPassword.salt,
                 session_token: ""
             };
+
+            console.log(userRequest)
             db.User
                 .create(userRequest)
                 .then(dbModel => response.json(dbModel))
