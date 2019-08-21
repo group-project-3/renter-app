@@ -31,6 +31,7 @@ class Register extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
+        
         if (this.state.password !== this.state.password_confirm) {
             console.log("error: invalid password");
         } else {
