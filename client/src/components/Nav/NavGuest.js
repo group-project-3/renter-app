@@ -3,7 +3,7 @@ import React, { Component } from "react";
 function NavGuest(props) {
     return (
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <a class="navbar-brand" href="#">Renter App</a>
+            <a class="navbar-brand" href="/">Renter App</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
